@@ -15,6 +15,8 @@
 		7183B3612208F74F00B08F8E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7183B35F2208F74F00B08F8E /* LaunchScreen.storyboard */; };
 		7183B36C2208F74F00B08F8E /* UNCParkingApplicationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7183B36B2208F74F00B08F8E /* UNCParkingApplicationTests.swift */; };
 		7183B3772208F74F00B08F8E /* UNCParkingApplicationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7183B3762208F74F00B08F8E /* UNCParkingApplicationUITests.swift */; };
+		7183B3852209455700B08F8E /* DictPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7183B3842209455700B08F8E /* DictPin.swift */; };
+		7183B3872209519000B08F8E /* Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7183B3862209519000B08F8E /* Pin.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		7183B3722208F74F00B08F8E /* UNCParkingApplicationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UNCParkingApplicationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7183B3762208F74F00B08F8E /* UNCParkingApplicationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UNCParkingApplicationUITests.swift; sourceTree = "<group>"; };
 		7183B3782208F74F00B08F8E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7183B3842209455700B08F8E /* DictPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictPin.swift; sourceTree = "<group>"; };
+		7183B3862209519000B08F8E /* Pin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pin.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +105,8 @@
 			children = (
 				7183B3542208F74100B08F8E /* AppDelegate.swift */,
 				7183B3562208F74100B08F8E /* FirstViewController.swift */,
+				7183B3862209519000B08F8E /* Pin.swift */,
+				7183B3842209455700B08F8E /* DictPin.swift */,
 				7183B3582208F74100B08F8E /* SecondViewController.swift */,
 				7183B35A2208F74100B08F8E /* Main.storyboard */,
 				7183B35D2208F74F00B08F8E /* Assets.xcassets */,
@@ -259,9 +265,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7183B3872209519000B08F8E /* Pin.swift in Sources */,
 				7183B3592208F74100B08F8E /* SecondViewController.swift in Sources */,
 				7183B3552208F74100B08F8E /* AppDelegate.swift in Sources */,
 				7183B3572208F74100B08F8E /* FirstViewController.swift in Sources */,
+				7183B3852209455700B08F8E /* DictPin.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,6 +447,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UY5KEWA2VH;
 				INFOPLIST_FILE = UNCParkingApplication/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -457,6 +466,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UY5KEWA2VH;
 				INFOPLIST_FILE = UNCParkingApplication/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
