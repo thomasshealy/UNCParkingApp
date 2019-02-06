@@ -17,6 +17,7 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
     var pinList = [DictPin]()
     let locationMgr = CLLocationManager()
     var tempPin: Pin!
+    var tempPin1: Pin!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,10 +26,14 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         self.locationMgr.requestWhenInUseAuthorization()
         self.locationMgr.desiredAccuracy = kCLLocationAccuracyBest
         self.locationMgr.requestLocation()
+        mapView.delegate = self
         
-        tempPin = Pin(lat: 35.903269, long: -79.041565, username: "Some Username", title: "UNC Hospital", description: "Availabile after 5pm", link: "Some link")
+        
+        tempPin = Pin(lat: 35.903269, long: -79.041565, username: "Some Username", title: "UNC Hospital Lot", description: "Available after 5pm", link: "Some link")
+        tempPin1 = Pin(lat: 35.912840, long: -79.047110, username: "Some Username", title: "Cobb Parking Deck", description: "Available with student parking pass", link: "Some link")
         
         markMap(tempPin)
+        markMap(tempPin1)
         
     }
     
@@ -43,7 +48,7 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
             let launchOptions = [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving]
             let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
             let mapItem = MKMapItem(placemark: placemark)
-            mapItem.name = "Selected Location"
+            mapItem.name = annotation.title ?? "Selected Location"
             mapItem.openInMaps(launchOptions: launchOptions)
         }
     }
@@ -53,15 +58,16 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         if annotation is MKUserLocation {
             return nil
         }
+        
         print("MKAnnotation return called")
         let identifier = "pin"
         var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKPinAnnotationView
         pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-        pinView?.pinTintColor = UIColor.orange
+        pinView?.pinTintColor = UIColor(red: 0.6, green: 0.729, blue: 0.867, alpha: 1.0)
         pinView?.canShowCallout = true
         let smallSquare = CGSize(width: 60, height: 60)
         let button = UIButton(frame: CGRect(origin: CGPoint.zero, size: smallSquare))
-        //button.setBackgroundImage(UIImage(named: "car"), for: UIControl.State())
+        button.setBackgroundImage(UIImage(named: "Car"), for: UIControl.State())
         pinView?.leftCalloutAccessoryView = button
         
         return pinView
