@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		63959C37220B00F900702949 /* MoreInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63959C36220B00F900702949 /* MoreInfoController.swift */; };
+		63D29FAC2215B74900ECF1E0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 63D29FAB2215B74900ECF1E0 /* GoogleService-Info.plist */; };
+		63D29FAD2215B74900ECF1E0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 63D29FAB2215B74900ECF1E0 /* GoogleService-Info.plist */; };
+		63D29FAE2215B74900ECF1E0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 63D29FAB2215B74900ECF1E0 /* GoogleService-Info.plist */; };
 		7183B3552208F74100B08F8E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7183B3542208F74100B08F8E /* AppDelegate.swift */; };
 		7183B3572208F74100B08F8E /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7183B3562208F74100B08F8E /* FirstViewController.swift */; };
 		7183B3592208F74100B08F8E /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7183B3582208F74100B08F8E /* SecondViewController.swift */; };
@@ -47,6 +50,7 @@
 		51781454A99FFC14F522A70C /* Pods-UNCParkingApplication.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UNCParkingApplication.release.xcconfig"; path = "Pods/Target Support Files/Pods-UNCParkingApplication/Pods-UNCParkingApplication.release.xcconfig"; sourceTree = "<group>"; };
 		632A7D120D4CD4DBBB9F9472 /* Pods-UNCParkingApplicationUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UNCParkingApplicationUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-UNCParkingApplicationUITests/Pods-UNCParkingApplicationUITests.release.xcconfig"; sourceTree = "<group>"; };
 		63959C36220B00F900702949 /* MoreInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreInfoController.swift; sourceTree = "<group>"; };
+		63D29FAB2215B74900ECF1E0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		66BC916FF293654FEBAE43AE /* Pods_UNCParkingApplicationUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UNCParkingApplicationUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B888C9743D012F2AAC85258 /* Pods-UNCParkingApplicationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UNCParkingApplicationTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-UNCParkingApplicationTests/Pods-UNCParkingApplicationTests.release.xcconfig"; sourceTree = "<group>"; };
 		7183B3512208F74100B08F8E /* UNCParkingApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UNCParkingApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,6 +132,7 @@
 				7183B388220A797600B08F8E /* TabBarController.swift */,
 				7183B3862209519000B08F8E /* Pin.swift */,
 				7183B3842209455700B08F8E /* DictPin.swift */,
+				63D29FAB2215B74900ECF1E0 /* GoogleService-Info.plist */,
 				7183B3582208F74100B08F8E /* SecondViewController.swift */,
 				63959C36220B00F900702949 /* MoreInfoController.swift */,
 				7183B36A2208F74F00B08F8E /* UNCParkingApplicationTests */,
@@ -191,6 +196,7 @@
 				7183B34D2208F74100B08F8E /* Sources */,
 				7183B34E2208F74100B08F8E /* Frameworks */,
 				7183B34F2208F74100B08F8E /* Resources */,
+				2F6740E3E23252E54F6129D1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -288,6 +294,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7183B3612208F74F00B08F8E /* LaunchScreen.storyboard in Resources */,
+				63D29FAC2215B74900ECF1E0 /* GoogleService-Info.plist in Resources */,
 				7183B35E2208F74F00B08F8E /* Assets.xcassets in Resources */,
 				7183B35C2208F74100B08F8E /* Main.storyboard in Resources */,
 			);
@@ -297,6 +304,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63D29FAD2215B74900ECF1E0 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,12 +312,37 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63D29FAE2215B74900ECF1E0 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		2F6740E3E23252E54F6129D1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UNCParkingApplication/Pods-UNCParkingApplication-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-UNCParkingApplication/Pods-UNCParkingApplication-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		8AAEB83BA1A3276CD4535D74 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
