@@ -13,6 +13,7 @@
 		63D29FAE2215B74900ECF1E0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 63D29FAB2215B74900ECF1E0 /* GoogleService-Info.plist */; };
 		7180041D22163EE6001368A0 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7180041C22163EE6001368A0 /* RegisterController.swift */; };
 		718004212216449D001368A0 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718004202216449D001368A0 /* LoginController.swift */; };
+		71800423221E3047001368A0 /* LocationTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71800422221E3044001368A0 /* LocationTableController.swift */; };
 		7183B3552208F74100B08F8E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7183B3542208F74100B08F8E /* AppDelegate.swift */; };
 		7183B3572208F74100B08F8E /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7183B3562208F74100B08F8E /* FirstViewController.swift */; };
 		7183B3592208F74100B08F8E /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7183B3582208F74100B08F8E /* SecondViewController.swift */; };
@@ -57,6 +58,7 @@
 		6B888C9743D012F2AAC85258 /* Pods-UNCParkingApplicationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UNCParkingApplicationTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-UNCParkingApplicationTests/Pods-UNCParkingApplicationTests.release.xcconfig"; sourceTree = "<group>"; };
 		7180041C22163EE6001368A0 /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
 		718004202216449D001368A0 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		71800422221E3044001368A0 /* LocationTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableController.swift; sourceTree = "<group>"; };
 		7183B3512208F74100B08F8E /* UNCParkingApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UNCParkingApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7183B3542208F74100B08F8E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7183B3562208F74100B08F8E /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 			children = (
 				718004202216449D001368A0 /* LoginController.swift */,
 				7183B3542208F74100B08F8E /* AppDelegate.swift */,
+				71800422221E3044001368A0 /* LocationTableController.swift */,
 				7180041C22163EE6001368A0 /* RegisterController.swift */,
 				7183B3562208F74100B08F8E /* FirstViewController.swift */,
 				7183B388220A797600B08F8E /* TabBarController.swift */,
@@ -427,6 +430,7 @@
 				7183B3552208F74100B08F8E /* AppDelegate.swift in Sources */,
 				7183B389220A797600B08F8E /* TabBarController.swift in Sources */,
 				718004212216449D001368A0 /* LoginController.swift in Sources */,
+				71800423221E3047001368A0 /* LocationTableController.swift in Sources */,
 				7180041D22163EE6001368A0 /* RegisterController.swift in Sources */,
 				63959C37220B00F900702949 /* MoreInfoController.swift in Sources */,
 				7183B3572208F74100B08F8E /* FirstViewController.swift in Sources */,

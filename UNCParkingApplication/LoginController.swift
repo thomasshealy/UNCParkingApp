@@ -50,7 +50,6 @@ class LoginController: UIViewController {
  
  */
     
-
     func formatTextField(field: UITextField){
         let gray = UIColor.lightGray.cgColor
         let border = CALayer()
