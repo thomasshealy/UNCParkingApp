@@ -7,6 +7,7 @@ target 'UNCParkingApplication' do
 
   # Pods for UNCParkingApplication
   pod 'Firebase/Core'
+  pod 'Firebase/Messaging'
 
 
   target 'UNCParkingApplicationTests' do
