@@ -53,20 +53,135 @@
             </objects>
             <point key="canvasLocation" x="1441" y="1217"/>
         </scene>
-        <!--View Controller-->
+        <!--Parking Pass Controller-->
+        <scene sceneID="9dP-Dv-n0G">
+            <objects>
+                <viewController id="lPB-JV-1FP" customClass="ParkingPassController" customModule="UNCParkingApplication" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pIV-AD-I9l">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tft-bz-5u0">
+                                <rect key="frame" x="0.0" y="332" width="375" height="307"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select the parking pass you have.." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YC1-1Z-5k9">
+                                <rect key="frame" x="16" y="82" width="343" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="I0J-oo-cAi"/>
+                    </view>
+                    <connections>
+                        <outlet property="picker" destination="Tft-bz-5u0" id="lf0-AV-FtU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UF5-gk-OUB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1837.5999999999999" y="-745.27736131934034"/>
+        </scene>
+        <!--Person Designation Controller-->
         <scene sceneID="vRM-IE-atL">
             <objects>
-                <viewController id="UMY-KD-O6e" sceneMemberID="viewController">
+                <viewController id="UMY-KD-O6e" customClass="PersonDesignationController" customModule="UNCParkingApplication" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yWu-XC-dgJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I am a..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eFz-vY-CUD">
+                                <rect key="frame" x="16" y="148" width="343" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="dQZ-Kd-YtR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PNJ-M0-D4I">
+                                <rect key="frame" x="16" y="237" width="343" height="48"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="fNa-pF-Hyd"/>
+                                </constraints>
+                                <state key="normal" title="Visitor">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="checkMarkTapped:" destination="UMY-KD-O6e" eventType="touchUpInside" id="ERF-4K-w6l"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fgh-Vy-lhk">
+                                <rect key="frame" x="16" y="316" width="343" height="48"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="dX6-Ia-Ql0"/>
+                                </constraints>
+                                <state key="normal" title="Student">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="checkMarkTapped:" destination="UMY-KD-O6e" eventType="touchUpInside" id="jje-nW-Bem"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dqO-er-yEY">
+                                <rect key="frame" x="16" y="394" width="343" height="48"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="xXJ-Mb-pI4"/>
+                                </constraints>
+                                <state key="normal" title="University Employee">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="checkMarkTapped:" destination="UMY-KD-O6e" eventType="touchDragInside" id="l24-ud-4yc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nck-co-RuJ">
+                                <rect key="frame" x="16" y="471" width="343" height="48"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Health Care Employee">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="checkMarkTapped:" destination="UMY-KD-O6e" eventType="touchDragInside" id="PmP-o7-8hk"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Fgh-Vy-lhk" firstAttribute="top" secondItem="PNJ-M0-D4I" secondAttribute="bottom" constant="31" id="0zo-4a-fPJ"/>
+                            <constraint firstItem="Nck-co-RuJ" firstAttribute="top" secondItem="dqO-er-yEY" secondAttribute="bottom" constant="29" id="1Rg-g5-WWY"/>
+                            <constraint firstItem="eFz-vY-CUD" firstAttribute="top" secondItem="h8V-lK-FuM" secondAttribute="top" constant="128" id="GIi-1E-iZN"/>
+                            <constraint firstItem="PNJ-M0-D4I" firstAttribute="top" secondItem="eFz-vY-CUD" secondAttribute="bottom" constant="41" id="ObD-hp-7Hg"/>
+                            <constraint firstItem="eFz-vY-CUD" firstAttribute="trailing" secondItem="yWu-XC-dgJ" secondAttribute="trailingMargin" id="Xnp-i0-K0f"/>
+                            <constraint firstItem="eFz-vY-CUD" firstAttribute="leading" secondItem="PNJ-M0-D4I" secondAttribute="leading" id="YxA-br-aki"/>
+                            <constraint firstItem="Fgh-Vy-lhk" firstAttribute="trailing" secondItem="dqO-er-yEY" secondAttribute="trailing" id="a6g-Ew-4op"/>
+                            <constraint firstItem="dqO-er-yEY" firstAttribute="top" secondItem="Fgh-Vy-lhk" secondAttribute="bottom" constant="30" id="iFN-1a-OEL"/>
+                            <constraint firstItem="eFz-vY-CUD" firstAttribute="leading" secondItem="yWu-XC-dgJ" secondAttribute="leadingMargin" id="ibn-5b-KqG"/>
+                            <constraint firstItem="PNJ-M0-D4I" firstAttribute="leading" secondItem="Fgh-Vy-lhk" secondAttribute="leading" id="lTH-bR-I6G"/>
+                            <constraint firstItem="Fgh-Vy-lhk" firstAttribute="leading" secondItem="dqO-er-yEY" secondAttribute="leading" id="lWP-c4-M5L"/>
+                            <constraint firstItem="dqO-er-yEY" firstAttribute="trailing" secondItem="Nck-co-RuJ" secondAttribute="trailing" id="pBo-h1-Trv"/>
+                            <constraint firstItem="h8V-lK-FuM" firstAttribute="bottom" secondItem="Nck-co-RuJ" secondAttribute="bottom" constant="148" id="qYK-h2-3az"/>
+                            <constraint firstItem="dqO-er-yEY" firstAttribute="leading" secondItem="Nck-co-RuJ" secondAttribute="leading" id="vRQ-mB-G6T"/>
+                            <constraint firstItem="PNJ-M0-D4I" firstAttribute="trailing" secondItem="Fgh-Vy-lhk" secondAttribute="trailing" id="xO3-Ks-bgW"/>
+                            <constraint firstItem="eFz-vY-CUD" firstAttribute="trailing" secondItem="PNJ-M0-D4I" secondAttribute="trailing" id="ymr-dt-7RR"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="h8V-lK-FuM"/>
                     </view>
+                    <connections>
+                        <outlet property="healthButton" destination="Nck-co-RuJ" id="sXl-qp-2gU"/>
+                        <outlet property="studentButton" destination="Fgh-Vy-lhk" id="GKK-jj-cNo"/>
+                        <outlet property="univEmployeeButton" destination="dqO-er-yEY" id="zcE-qS-tBa"/>
+                        <outlet property="visitorButton" destination="PNJ-M0-D4I" id="Nii-Ni-Ldk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dwe-Y1-Ega" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1086" y="-743"/>
+            <point key="canvasLocation" x="-1087.2" y="-743.47826086956525"/>
         </scene>
         <!--My Profile-->
         <scene sceneID="5SK-uS-7ln">
@@ -150,7 +265,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController storyboardIdentifier="Tab" id="49e-Tb-3d3" sceneMemberID="viewController">
+                <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -273,7 +388,7 @@
         <!--UNC Transportation-->
         <scene sceneID="dpm-gt-zFJ">
             <objects>
-                <tableViewController id="pBZ-E5-w2V" sceneMemberID="viewController">
+                <tableViewController id="pBZ-E5-w2V" customClass="LocationTableController" customModule="UNCParkingApplication" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Eom-ZK-Ox1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -306,8 +421,8 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0.5 Miles Away" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ua-9z-u5d">
-                                                    <rect key="frame" x="16" y="64" width="104" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0.5 Miles Away" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="3Ua-9z-u5d">
+                                                    <rect key="frame" x="16" y="64" width="148" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
@@ -327,13 +442,6 @@
                                                     <rect key="frame" x="16" y="6" width="78" height="63"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1.5 Miles Away" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SgA-8X-Udu">
-                                                    <rect key="frame" x="16" y="77" width="104" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cobb Parking Debt" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3z8-f8-iJd">
                                                     <rect key="frame" x="119" y="11" width="240" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -343,6 +451,13 @@
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Availble with Student Pass" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g5C-2X-2h9">
                                                     <rect key="frame" x="119" y="40" width="240" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1.5 Miles Away" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="SgA-8X-Udu">
+                                                    <rect key="frame" x="16" y="70" width="149" height="19"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
@@ -360,6 +475,10 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="UNC Transportation" id="av4-we-Vdi"/>
+                    <connections>
+                        <outlet property="bottomLabel" destination="SgA-8X-Udu" id="zDh-xY-6Ec"/>
+                        <outlet property="topLabel" destination="3Ua-9z-u5d" id="Wo6-DL-avk"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JH5-jS-cxE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -430,7 +549,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="loginButtonPressed:" destination="36P-WD-chI" eventType="touchUpInside" id="6yu-7u-5ET"/>
+                                    <segue destination="49e-Tb-3d3" kind="show" id="xRX-Fs-QZ4"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a0J-Zt-z8P">
@@ -445,7 +564,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="hyk-I3-y84" kind="show" id="LWS-wh-nHg"/>
+                                    <segue destination="UMY-KD-O6e" kind="show" id="cKc-Bc-wWn"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EAQ-HY-8zS">
@@ -501,7 +620,7 @@
         <!--Register Controller-->
         <scene sceneID="5qb-LE-aRv">
             <objects>
-                <viewController id="hyk-I3-y84" customClass="RegisterController" customModule="UNCParkingApplication" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RegisterController" id="hyk-I3-y84" customClass="RegisterController" customModule="UNCParkingApplication" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Xdz-bo-oSN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -569,7 +688,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="registerButtonPressed:" destination="hyk-I3-y84" eventType="touchUpInside" id="OeV-sa-2W9"/>
+                                    <action selector="registerPressed:" destination="hyk-I3-y84" eventType="touchUpInside" id="j7j-c5-LBb"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SHX-BN-GaL">
@@ -629,12 +748,11 @@
                         <outlet property="lastName" destination="lXh-fj-i3J" id="TDL-wP-is9"/>
                         <outlet property="passwordField" destination="eyb-3b-4hi" id="yen-No-nIO"/>
                         <outlet property="registerButton" destination="Khy-hR-7g0" id="9ye-HR-n3K"/>
-                        <segue destination="36P-WD-chI" kind="show" identifier="toLogin" id="9xc-s3-0t9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Bl-vS-ofB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-369" y="-743"/>
+            <point key="canvasLocation" x="-322" y="-743"/>
         </scene>
     </scenes>
     <resources>
@@ -643,7 +761,4 @@
         <image name="first" width="30" height="30"/>
         <image name="second" width="30" height="30"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="9xc-s3-0t9"/>
-    </inferredMetricsTieBreakers>
 </document>

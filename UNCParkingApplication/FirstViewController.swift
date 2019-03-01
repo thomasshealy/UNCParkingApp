@@ -34,6 +34,8 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         
         tempPin = Pin(lat: 35.903269, long: -79.041565, username: "Some Username", title: "UNC Hospital Lot", description: "Available after 5pm", link: "Some link")
         tempPin1 = Pin(lat: 35.912840, long: -79.047110, username: "Some Username", title: "Cobb Parking Deck", description: "Available with student parking pass", link: "Some link")
+        //Do some kind of iteration here where you loop through all of the coordinates and call translateCoords
+        
         
         markMap(tempPin)
         markMap(tempPin1)

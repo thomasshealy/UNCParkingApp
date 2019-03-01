@@ -7,9 +7,9 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>412911477695-frn4ttle98o7fqnb23fodoqvh6mjhbgh.apps.googleusercontent.com</string>
+	<string>412911477695-qt8h3ksbcvlpr9a57qia1k5hiljs5jef.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.412911477695-frn4ttle98o7fqnb23fodoqvh6mjhbgh</string>
+	<string>com.googleusercontent.apps.412911477695-qt8h3ksbcvlpr9a57qia1k5hiljs5jef</string>
 	<key>API_KEY</key>
 	<string>AIzaSyBDt5C3HT5BHXpleYhuflXhIa0OcyjZDT0</string>
 	<key>GCM_SENDER_ID</key>
@@ -17,7 +17,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>UNC-Chapel-Hill.UNCParkingApplication</string>
+	<string>UNC-Chapel-Hill.UNCParkingApp</string>
 	<key>PROJECT_ID</key>
 	<string>unc-parking-app</string>
 	<key>STORAGE_BUCKET</key>
@@ -33,7 +33,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:412911477695:ios:5af54107b83632bf</string>
+	<string>1:412911477695:ios:edd8fc1286b2093f</string>
 	<key>DATABASE_URL</key>
 	<string>https://unc-parking-app.firebaseio.com</string>
 </dict>
