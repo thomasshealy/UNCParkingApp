@@ -265,7 +265,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="Tab" id="49e-Tb-3d3" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -549,7 +549,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="49e-Tb-3d3" kind="show" id="xRX-Fs-QZ4"/>
+                                    <action selector="loginButtonPressed:" destination="36P-WD-chI" eventType="touchUpInside" id="ey0-Ui-dOM"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a0J-Zt-z8P">
@@ -564,7 +564,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="UMY-KD-O6e" kind="show" id="cKc-Bc-wWn"/>
+                                    <segue destination="hyk-I3-y84" kind="show" id="QfR-59-fPD"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EAQ-HY-8zS">
@@ -688,7 +688,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="registerPressed:" destination="hyk-I3-y84" eventType="touchUpInside" id="j7j-c5-LBb"/>
+                                    <action selector="registerButtonPressed:" destination="hyk-I3-y84" eventType="touchUpInside" id="UcR-20-knZ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SHX-BN-GaL">
@@ -748,11 +748,12 @@
                         <outlet property="lastName" destination="lXh-fj-i3J" id="TDL-wP-is9"/>
                         <outlet property="passwordField" destination="eyb-3b-4hi" id="yen-No-nIO"/>
                         <outlet property="registerButton" destination="Khy-hR-7g0" id="9ye-HR-n3K"/>
+                        <segue destination="36P-WD-chI" kind="show" identifier="toLogin" id="SeH-8q-BEi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Bl-vS-ofB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-322" y="-743"/>
+            <point key="canvasLocation" x="-391" y="-764"/>
         </scene>
     </scenes>
     <resources>
@@ -761,4 +762,7 @@
         <image name="first" width="30" height="30"/>
         <image name="second" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="SeH-8q-BEi"/>
+    </inferredMetricsTieBreakers>
 </document>

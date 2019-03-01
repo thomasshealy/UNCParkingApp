@@ -50,15 +50,21 @@ class LoginController: UIViewController {
         view.endEditing(true)
     }
     
-  
+    func presentHomePage(){
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "Tab")
+        self.present(vc!, animated: true, completion: nil)
+    }
+    
     @IBAction func loginButtonPressed(_ sender: Any) {
         Auth.auth().signIn(withEmail: userField.text!, password: passwordField.text!) { (user, error) in
             
             if(error == nil){
                 print("You have successfully logged in")
-                if let email = self.userField.text{
-                    UserDefaults.standard.set(email, forKey: "email")
-                }
+                /*
+                 if let email = self.userField.text{
+                 UserDefaults.standard.set(email, forKey: "email")
+                 }
+                 */
                 self.presentHomePage()
             }
             else{
@@ -70,10 +76,4 @@ class LoginController: UIViewController {
             }
         }
     }
-    
-    func presentHomePage(){
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "Tab")
-        self.present(vc!, animated: true, completion: nil)
-    }
-    
 }
