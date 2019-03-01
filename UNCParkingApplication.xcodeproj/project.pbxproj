@@ -8,9 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		63959C37220B00F900702949 /* MoreInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63959C36220B00F900702949 /* MoreInfoController.swift */; };
-		63D29FAC2215B74900ECF1E0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 63D29FAB2215B74900ECF1E0 /* GoogleService-Info.plist */; };
-		63D29FAD2215B74900ECF1E0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 63D29FAB2215B74900ECF1E0 /* GoogleService-Info.plist */; };
-		63D29FAE2215B74900ECF1E0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 63D29FAB2215B74900ECF1E0 /* GoogleService-Info.plist */; };
 		7180041D22163EE6001368A0 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7180041C22163EE6001368A0 /* RegisterController.swift */; };
 		718004212216449D001368A0 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718004202216449D001368A0 /* LoginController.swift */; };
 		71800423221E3047001368A0 /* LocationTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71800422221E3044001368A0 /* LocationTableController.swift */; };
@@ -27,6 +24,7 @@
 		7183B389220A797600B08F8E /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7183B388220A797600B08F8E /* TabBarController.swift */; };
 		71EA5D0F221F97D300143FAA /* PersonDesignationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71EA5D0E221F97D300143FAA /* PersonDesignationController.swift */; };
 		71EA5D11221FABC300143FAA /* ParkingPassController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71EA5D10221FABC300143FAA /* ParkingPassController.swift */; };
+		71EA5D142228AC7900143FAA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 71EA5D132228AC7900143FAA /* GoogleService-Info.plist */; };
 		9B201AC554859AF0D8CA7DEF /* Pods_UNCParkingApplication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EB860B05321A63F75B6D7B3 /* Pods_UNCParkingApplication.framework */; };
 		A486DEE6FB531225D2F15606 /* Pods_UNCParkingApplicationTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BDAEA0AC388CF5AC3BF9CD4 /* Pods_UNCParkingApplicationTests.framework */; };
 		E0115A02433BFDE385FAE4C1 /* Pods_UNCParkingApplicationUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66BC916FF293654FEBAE43AE /* Pods_UNCParkingApplicationUITests.framework */; };
@@ -55,7 +53,6 @@
 		51781454A99FFC14F522A70C /* Pods-UNCParkingApplication.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UNCParkingApplication.release.xcconfig"; path = "Pods/Target Support Files/Pods-UNCParkingApplication/Pods-UNCParkingApplication.release.xcconfig"; sourceTree = "<group>"; };
 		632A7D120D4CD4DBBB9F9472 /* Pods-UNCParkingApplicationUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UNCParkingApplicationUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-UNCParkingApplicationUITests/Pods-UNCParkingApplicationUITests.release.xcconfig"; sourceTree = "<group>"; };
 		63959C36220B00F900702949 /* MoreInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreInfoController.swift; sourceTree = "<group>"; };
-		63D29FAB2215B74900ECF1E0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		66BC916FF293654FEBAE43AE /* Pods_UNCParkingApplicationUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UNCParkingApplicationUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B888C9743D012F2AAC85258 /* Pods-UNCParkingApplicationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UNCParkingApplicationTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-UNCParkingApplicationTests/Pods-UNCParkingApplicationTests.release.xcconfig"; sourceTree = "<group>"; };
 		7180041C22163EE6001368A0 /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
@@ -81,6 +78,7 @@
 		71EA5D0E221F97D300143FAA /* PersonDesignationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDesignationController.swift; sourceTree = "<group>"; };
 		71EA5D10221FABC300143FAA /* ParkingPassController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingPassController.swift; sourceTree = "<group>"; };
 		71EA5D1222277F4500143FAA /* UNCParkingApplication.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = UNCParkingApplication.entitlements; sourceTree = "<group>"; };
+		71EA5D132228AC7900143FAA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8B2931F448889D3AA64EB9E9 /* Pods-UNCParkingApplicationUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UNCParkingApplicationUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UNCParkingApplicationUITests/Pods-UNCParkingApplicationUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CDA78EA4D73FEECD8226E900 /* Pods-UNCParkingApplication.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UNCParkingApplication.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UNCParkingApplication/Pods-UNCParkingApplication.debug.xcconfig"; sourceTree = "<group>"; };
 		DF028D3E8286CBFCF390FFCD /* Pods-UNCParkingApplicationTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UNCParkingApplicationTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UNCParkingApplicationTests/Pods-UNCParkingApplicationTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -149,8 +147,8 @@
 				7183B388220A797600B08F8E /* TabBarController.swift */,
 				7183B3862209519000B08F8E /* Pin.swift */,
 				7183B3842209455700B08F8E /* DictPin.swift */,
-				63D29FAB2215B74900ECF1E0 /* GoogleService-Info.plist */,
 				7183B3582208F74100B08F8E /* SecondViewController.swift */,
+				71EA5D132228AC7900143FAA /* GoogleService-Info.plist */,
 				63959C36220B00F900702949 /* MoreInfoController.swift */,
 				7183B36A2208F74F00B08F8E /* UNCParkingApplicationTests */,
 				7183B35A2208F74100B08F8E /* Main.storyboard */,
@@ -319,7 +317,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7183B3612208F74F00B08F8E /* LaunchScreen.storyboard in Resources */,
-				63D29FAC2215B74900ECF1E0 /* GoogleService-Info.plist in Resources */,
+				71EA5D142228AC7900143FAA /* GoogleService-Info.plist in Resources */,
 				7183B35E2208F74F00B08F8E /* Assets.xcassets in Resources */,
 				7183B35C2208F74100B08F8E /* Main.storyboard in Resources */,
 			);
@@ -329,7 +327,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63D29FAD2215B74900ECF1E0 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,7 +334,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63D29FAE2215B74900ECF1E0 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
