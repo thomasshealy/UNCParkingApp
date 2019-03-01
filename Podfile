@@ -7,7 +7,7 @@ target 'UNCParkingApplication' do
 
   # Pods for UNCParkingApplication
   pod 'Firebase/Core'
-
+  pod 'FirebaseUI'
 
   target 'UNCParkingApplicationTests' do
     inherit! :search_paths

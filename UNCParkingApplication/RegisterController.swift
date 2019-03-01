@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseUI
 
 class RegisterController: UIViewController, UITextFieldDelegate {
     
@@ -89,5 +91,83 @@ class RegisterController: UIViewController, UITextFieldDelegate {
         view.endEditing(true)
     }
     
-
+    @IBAction func registerButtonPressed(_ sender: Any) {
+        
+        let alertController = UIAlertController(title: "Error", message: "Invalid field(s), please try gain", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { (action: UIAlertAction!) in
+            alertController.dismiss(animated: true, completion: nil)
+        }))
+        
+        let alertController1 = UIAlertController(title: "Error", message: "Email Address already in use.", preferredStyle: .alert)
+        alertController1.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { (action: UIAlertAction!) in
+            alertController1.dismiss(animated: true, completion: nil)
+        }))
+        
+        let alertController2 = UIAlertController(title: "Success", message: "Your account was successfully created.", preferredStyle: .alert)
+        alertController2.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { (action: UIAlertAction!) in
+            alertController1.dismiss(animated: true, completion: nil)
+            self.performSegue(withIdentifier: "toLogin", sender: nil)
+        }))
+        
+        let email = emailAddress.text
+        let password = passwordField.text
+        let confirm = confirmationField.text
+        
+        if(firstName.hasText && lastName.hasText && emailAddress.hasText
+            && passwordField.hasText && confirmationField.hasText && password == confirm
+            && isValidEmail(testStr: email!)){
+            
+            Auth.auth().createUser(withEmail: email!, password: password!, completion: { (auth, error) in
+                if error == nil {
+                    print("successfully created user")
+               //     UserDefaults.standard.set(first, forKey: "firstName")
+               //     UserDefaults.standard.set(last, forKey: "lastName")
+               //     UserDefaults.standard.set(email, forKey: "email")
+                    self.present(alertController2, animated: true, completion: nil)
+                    //UserDefaults.standard.set(userEmail, forKey: "email")
+                    // Create user on Stripe dashboard
+                    // Completion function for createCustomer
+                    /*
+                     let handlerBlock: (Bool) -> Void = { doneWork in
+                     if doneWork {
+                     print("We've finished working, bruh")
+                     }
+                     }
+                     */
+                    /*
+                    let storeCustomerIdCompletion: (String) -> Void = { customer_id in
+                        // Put stripe customer id in database
+                        let userDict : Dictionary<String, AnyObject> = [
+                            "userLat": 0.00 as AnyObject,
+                            "userLong": 0.00 as AnyObject,
+                            "destinationLat": 0.00 as AnyObject,
+                            "destinationLong": 0.00 as AnyObject,
+                            "firstName": first as AnyObject,
+                            "lastName": last as AnyObject,
+                            "description": "Sample Description" as AnyObject,
+                            "porterID": "place_holder" as AnyObject,
+                            "stripeID": customer_id as AnyObject,
+                            "email": email as AnyObject
+                        ]
+                        let userID = Auth.auth().currentUser!.uid
+                        self.ref.child("AllUsers").child(userID).setValue(userDict)
+                        print("ID saved as " + customer_id)
+                        UserDefaults.standard.set(customer_id, forKey: "stripeID")
+                        
+                    }
+                */
+                }else{
+                    self.present(alertController1, animated: true, completion: nil)
+                }
+            })
+            print("Successful Registration")
+        }
+        else{
+            self.present(alertController, animated: true, completion: nil)
+            
+        }
+        
+        
+    }
+    
 }

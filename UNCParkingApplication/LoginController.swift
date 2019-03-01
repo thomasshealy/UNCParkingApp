@@ -7,6 +7,9 @@
 
 import UIKit
 
+import Firebase
+import FirebaseUI
+
 class LoginController: UIViewController {
     
     @IBOutlet weak var userField: UITextField!
@@ -24,31 +27,8 @@ class LoginController: UIViewController {
         formatTextField(field: passwordField)
 
     }
-    
-    //Uncomment this after the client has paid for firebase.
-    
-    /*
-    @IBAction func loginPressed(_ sender: Any) {
-        Auth.auth().signIn(withEmail: userField.text!, password: passwordField.text!) { (user, error) in
-            
-            if(error == nil){
-                print("You have successfully logged in")
-                if let email = self.userField.text{
-                    UserDefaults.standard.set(email, forKey: "email")
-                }
-                self.presentHomePage()
-            }
-            else{
-                let alertController = UIAlertController(title: "Error", message: "Invalid username and/or password", preferredStyle: .alert)
-                alertController.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { (action: UIAlertAction!) in
-                    alertController.dismiss(animated: true, completion: nil)
-                }))
-                self.present(alertController, animated: true, completion: nil)
-            }
-        }
-    }
  
- */
+ 
     
 
     func formatTextField(field: UITextField){
@@ -70,5 +50,30 @@ class LoginController: UIViewController {
         view.endEditing(true)
     }
     
-
+  
+    @IBAction func loginButtonPressed(_ sender: Any) {
+        Auth.auth().signIn(withEmail: userField.text!, password: passwordField.text!) { (user, error) in
+            
+            if(error == nil){
+                print("You have successfully logged in")
+                if let email = self.userField.text{
+                    UserDefaults.standard.set(email, forKey: "email")
+                }
+                self.presentHomePage()
+            }
+            else{
+                let alertController = UIAlertController(title: "Error", message: "Invalid username and/or password", preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { (action: UIAlertAction!) in
+                    alertController.dismiss(animated: true, completion: nil)
+                }))
+                self.present(alertController, animated: true, completion: nil)
+            }
+        }
+    }
+    
+    func presentHomePage(){
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "Tab")
+        self.present(vc!, animated: true, completion: nil)
+    }
+    
 }
