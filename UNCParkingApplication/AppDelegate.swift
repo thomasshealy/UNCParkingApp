@@ -35,6 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
         application.registerForRemoteNotifications()
         FirebaseApp.configure()
         registerForPushNotifications()
+        registerUserProperty(property: ["NS"])
         return true
     }
     
@@ -47,6 +48,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
                 guard granted else { return }
                 self?.getNotificationSettings()
         }
+    }
+    
+    func registerUserProperty(property: [String]){
+        
+        Analytics.setUserProperty(property[0], forName: "Parking_Passes")
+        print("Register User Called: ", property[0])
+        
     }
     
     func getNotificationSettings() {

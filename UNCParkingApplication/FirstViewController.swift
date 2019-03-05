@@ -36,7 +36,6 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         tempPin1 = Pin(lat: 35.912840, long: -79.047110, username: "Some Username", title: "Cobb Parking Deck", description: "Available with student parking pass", link: "Some link")
         //Do some kind of iteration here where you loop through all of the coordinates and call translateCoords
         
-        
         markMap(tempPin)
         markMap(tempPin1)
         
@@ -100,6 +99,13 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         annotation.subtitle = pin.description
         mapView.addAnnotation(annotation)
         print("Gets called")
+    }
+    
+    func registerUserProperty(property: [String]){
+        
+        Analytics.setUserProperty(property[0], forName: "Parking_Passes")
+        print("Register User Called: ", property[0])
+        
     }
     
 
