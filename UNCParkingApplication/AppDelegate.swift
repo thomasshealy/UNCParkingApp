@@ -35,7 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
         application.registerForRemoteNotifications()
         FirebaseApp.configure()
         registerForPushNotifications()
-        registerUserProperty(property: ["NS"])
+        registerUserProperty(property: ["STUDENT"])
         return true
     }
     

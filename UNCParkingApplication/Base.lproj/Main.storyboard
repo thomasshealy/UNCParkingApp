@@ -39,7 +39,7 @@
         <scene sceneID="cTR-ES-IXs">
             <objects>
                 <navigationController id="mhE-dd-eNk" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" image="first" id="acE-bY-y2S"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="first" selectedImage="48pxIcon_Profile_Blue" id="acE-bY-y2S"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="IHM-wG-ypO">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -269,7 +269,6 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="sd9-yL-TBT" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
@@ -286,7 +285,7 @@
         <scene sceneID="nqc-1a-oHQ">
             <objects>
                 <navigationController id="Cp0-dy-mdA" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="More Info" image="second" id="TXc-ci-3BB"/>
+                    <tabBarItem key="tabBarItem" title="More Info" image="second" selectedImage="48pxIcon_MoreInfo_Blue" id="TXc-ci-3BB"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="B4Y-gt-703">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -370,7 +369,7 @@
         <scene sceneID="f4u-b1-Ipc">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sd9-yL-TBT" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Map" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="first" selectedImage="48pxIcon_Location_Blue" id="acW-dT-cKf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ZcS-99-o1M">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -488,7 +487,7 @@
         <scene sceneID="JyN-oa-1sj">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RAe-S9-Nbw" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Locations" id="IJa-Zh-FWJ"/>
+                    <tabBarItem key="tabBarItem" title="Locations" selectedImage="72pxIcon_Map_Blue" id="IJa-Zh-FWJ"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7AX-N6-xrQ">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -511,8 +510,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MJB-AY-6PJ">
-                                <rect key="frame" x="16" y="28" width="359" height="240.5"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="App_Login_Reg_Blue" translatesAutoresizingMaskIntoConstraints="NO" id="MJB-AY-6PJ">
+                                <rect key="frame" x="16" y="28" width="343" height="241"/>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aue-cy-bhN">
                                 <rect key="frame" x="16" y="318.5" width="343" height="30"/>
@@ -578,6 +577,9 @@
                                         <integer key="value" value="16"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="lZr-jF-Ex4" kind="show" id="xTZ-FJ-m1e"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -615,7 +617,61 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xm2-4K-XuP" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="458" y="-743"/>
+            <point key="canvasLocation" x="456.80000000000001" y="-743.47826086956525"/>
+        </scene>
+        <!--Forgot Password Controller-->
+        <scene sceneID="lJ7-1m-3vh">
+            <objects>
+                <viewController id="lZr-jF-Ex4" customClass="ForgotPasswordController" customModule="UNCParkingApplication" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gQj-gV-MRd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="App_Login_Reg_Blue" translatesAutoresizingMaskIntoConstraints="NO" id="Us8-LP-qnT">
+                                <rect key="frame" x="16" y="20" width="343" height="219"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2g3-9T-xg7">
+                                <rect key="frame" x="16" y="318" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BJo-eV-J3N">
+                                <rect key="frame" x="16" y="483" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Reset Password"/>
+                                <connections>
+                                    <action selector="resetPasswordButtonPressed:" destination="lZr-jF-Ex4" eventType="touchUpInside" id="g8a-HU-0h6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vnd-yG-gEw">
+                                <rect key="frame" x="16" y="521" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <segue destination="36P-WD-chI" kind="show" id="QSK-0u-UQM"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please enter the email you used to register" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kBg-BG-2nV">
+                                <rect key="frame" x="16" y="280" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="zCZ-Wi-Mcj"/>
+                    </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="2g3-9T-xg7" id="jAE-07-Yre"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Ww-CH-gEl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1365.5999999999999" y="-1089.8050974512744"/>
         </scene>
         <!--Register Controller-->
         <scene sceneID="5qb-LE-aRv">
@@ -643,8 +699,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="J2X-4e-9ub">
-                                <rect key="frame" x="12" y="0.0" width="363" height="229"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="App_Login_Reg_Blue" translatesAutoresizingMaskIntoConstraints="NO" id="J2X-4e-9ub">
+                                <rect key="frame" x="12" y="20" width="347" height="209"/>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="36g-K9-Khb">
                                 <rect key="frame" x="16" y="315" width="343" height="30"/>
@@ -753,16 +809,20 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Bl-vS-ofB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-391" y="-764"/>
+            <point key="canvasLocation" x="-391.19999999999999" y="-764.16791604197908"/>
         </scene>
     </scenes>
     <resources>
+        <image name="48pxIcon_Location_Blue" width="48" height="48"/>
+        <image name="48pxIcon_MoreInfo_Blue" width="48" height="48"/>
+        <image name="48pxIcon_Profile_Blue" width="48" height="48"/>
+        <image name="72pxIcon_Map_Blue" width="72" height="72"/>
+        <image name="App_Login_Reg_Blue" width="1025" height="1025"/>
         <image name="Car" width="90" height="90"/>
-        <image name="Logo" width="16" height="16"/>
         <image name="first" width="30" height="30"/>
         <image name="second" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="SeH-8q-BEi"/>
+        <segue reference="QSK-0u-UQM"/>
     </inferredMetricsTieBreakers>
 </document>
