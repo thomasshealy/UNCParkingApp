@@ -186,7 +186,7 @@
         <!--My Profile-->
         <scene sceneID="5SK-uS-7ln">
             <objects>
-                <viewController id="XsU-xx-cDr" sceneMemberID="viewController">
+                <viewController id="XsU-xx-cDr" customClass="ProfileController" customModule="UNCParkingApplication" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="47p-b4-LRu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -244,6 +244,9 @@
                                 <rect key="frame" x="16" y="500" width="343" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Save Changes"/>
+                                <connections>
+                                    <action selector="saveChangesButtonPressed:" destination="XsU-xx-cDr" eventType="touchUpInside" id="nE1-R4-HxQ"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="I am a:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jfm-cD-Lcl">
                                 <rect key="frame" x="16" y="225" width="60" height="30"/>
@@ -257,6 +260,12 @@
                         <viewLayoutGuide key="safeArea" id="ebT-eb-bnU"/>
                     </view>
                     <navigationItem key="navigationItem" title="My Profile" id="Bfo-c3-ofI"/>
+                    <connections>
+                        <outlet property="nameField" destination="Q1R-Oc-Eql" id="9mk-b0-d4b"/>
+                        <outlet property="permitField" destination="DHa-il-ohA" id="7l9-67-XxZ"/>
+                        <outlet property="pushNotificationField" destination="SXd-G7-SO1" id="qpR-VX-0Xg"/>
+                        <outlet property="typeField" destination="aVq-UA-c8d" id="jaa-zN-QFv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uFH-mf-lEc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

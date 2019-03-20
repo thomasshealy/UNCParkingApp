@@ -20,10 +20,13 @@ class RegisterController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var registerButton: UIButton!
     @IBOutlet weak var backButton: UIButton!
     
-     var userID: String!
+    var userID: String!
+    var ref: DatabaseReference!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        ref = Database.database().reference()
         
         firstName.delegate = self
         lastName.delegate = self
@@ -120,20 +123,18 @@ class RegisterController: UIViewController, UITextFieldDelegate {
             Auth.auth().createUser(withEmail: email!, password: password!, completion: { (auth, error) in
                 if error == nil {
                     print("successfully created user")
-                    //     UserDefaults.standard.set(first, forKey: "firstName")
-                    //     UserDefaults.standard.set(last, forKey: "lastName")
-                    //     UserDefaults.standard.set(email, forKey: "email")
                     self.present(alertController2, animated: true, completion: nil)
-                    //UserDefaults.standard.set(userEmail, forKey: "email")
-                    // Create user on Stripe dashboard
-                    // Completion function for createCustomer
-                    /*
-                     let handlerBlock: (Bool) -> Void = { doneWork in
-                     if doneWork {
-                     print("We've finished working, bruh")
-                     }
-                     }
-                     */
+                    let userDict : Dictionary<String, AnyObject> = [
+                        "firstName": self.firstName.text as AnyObject,
+                        "lastName": self.lastName.text as AnyObject,
+                        "email": self.emailAddress.text as AnyObject,
+                        "type": "place_holder" as AnyObject,
+                        "permits": ["place_holder"] as AnyObject,
+                        "push_notifications": true as AnyObject
+                    ]
+                    let userID = Auth.auth().currentUser!.uid
+                    self.ref.child("users").child(userID).setValue(userDict)
+                    
                     /*
                      let storeCustomerIdCompletion: (String) -> Void = { customer_id in
                      // Put stripe customer id in database
