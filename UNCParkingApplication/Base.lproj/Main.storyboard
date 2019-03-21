@@ -499,7 +499,6 @@
                     <tabBarItem key="tabBarItem" title="Locations" selectedImage="72pxIcon_Map_Blue" id="IJa-Zh-FWJ"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7AX-N6-xrQ">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

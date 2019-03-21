@@ -17,14 +17,23 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
 
     @IBOutlet weak var mapView: MKMapView!
     
+    //dgallub1@live.unc.edu
+    //pw: testtest
+    
     var pinList = [DictPin]()
     let locationMgr = CLLocationManager()
     var tempPin: Pin!
     var tempPin1: Pin!
     
+    var ref: DatabaseReference!
+    var lotList =  [lotDict]()
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        ref = Database.database().reference()
+
         self.locationMgr.delegate = self
         self.locationMgr.requestWhenInUseAuthorization()
         self.locationMgr.desiredAccuracy = kCLLocationAccuracyBest
@@ -36,8 +45,24 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         tempPin1 = Pin(lat: 35.912840, long: -79.047110, username: "Some Username", title: "Cobb Parking Deck", description: "Available with student parking pass", link: "Some link")
         //Do some kind of iteration here where you loop through all of the coordinates and call translateCoords
         
-        markMap(tempPin)
-        markMap(tempPin1)
+        ref.child("lots").observe(DataEventType.value, with: { snapshot in
+            self.lotList = []
+            if let snapshots = snapshot.children.allObjects as? [DataSnapshot] {
+                print("enters if")
+                for snap in snapshots {
+                    if let postDictionary = snap.value as? Dictionary<String, AnyObject> {
+                        print("enters second if")
+                        let key = snap.key
+                        let lotData = lotDict(key: key, dictionary: postDictionary)
+                        print("fire loop running")
+                        self.lotList.append(lotData)
+                        
+                    }
+                }
+                self.addLots()
+            }
+            
+        })
         
     }
     
@@ -89,14 +114,20 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         
     }
     
-    func markMap(_ pin: Pin){
+    func addLots(){
+        for lot in lotList{
+            markMap(lot)
+        }
+    }
+    
+    func markMap(_ pin: lotDict){
         let annotation = MKPointAnnotation()
         annotation.coordinate.latitude = pin.lat
         print(pin.lat)
         print(pin.long)
         annotation.coordinate.longitude = pin.long
-        annotation.title = pin.title
-        annotation.subtitle = pin.description
+        annotation.title = pin.lot_name
+        annotation.subtitle = "Available with " + pin.permit_type + " pass"
         mapView.addAnnotation(annotation)
         print("Gets called")
     }
@@ -129,7 +160,7 @@ extension FirstViewController{
             self.mapView.setRegion(region, animated: true)
             self.tempPin = Pin(lat: 35.903269, long: -79.041565, username: "Some Username", title: "UNC Hospital", description: "Availabile after 5pm", link: "Some link")
             
-            self.markMap(tempPin)
+           // self.markMap(tempPin)
         }
     }
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error){
