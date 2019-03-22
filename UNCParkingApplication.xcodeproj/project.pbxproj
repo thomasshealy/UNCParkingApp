@@ -25,6 +25,8 @@
 		7183B3852209455700B08F8E /* DictPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7183B3842209455700B08F8E /* DictPin.swift */; };
 		7183B3872209519000B08F8E /* Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7183B3862209519000B08F8E /* Pin.swift */; };
 		7183B389220A797600B08F8E /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7183B388220A797600B08F8E /* TabBarController.swift */; };
+		71AC4F2922447D1000C9C41F /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AC4F2822447D1000C9C41F /* LocationCell.swift */; };
+		71AC4F2B224480B700C9C41F /* FirebaseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AC4F2A224480B700C9C41F /* FirebaseHandler.swift */; };
 		71EA5D0F221F97D300143FAA /* PersonDesignationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71EA5D0E221F97D300143FAA /* PersonDesignationController.swift */; };
 		71EA5D11221FABC300143FAA /* ParkingPassController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71EA5D10221FABC300143FAA /* ParkingPassController.swift */; };
 		71EA5D142228AC7900143FAA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 71EA5D132228AC7900143FAA /* GoogleService-Info.plist */; };
@@ -81,6 +83,8 @@
 		7183B3842209455700B08F8E /* DictPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictPin.swift; sourceTree = "<group>"; };
 		7183B3862209519000B08F8E /* Pin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pin.swift; sourceTree = "<group>"; };
 		7183B388220A797600B08F8E /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		71AC4F2822447D1000C9C41F /* LocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
+		71AC4F2A224480B700C9C41F /* FirebaseHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseHandler.swift; sourceTree = "<group>"; };
 		71EA5D0E221F97D300143FAA /* PersonDesignationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDesignationController.swift; sourceTree = "<group>"; };
 		71EA5D10221FABC300143FAA /* ParkingPassController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingPassController.swift; sourceTree = "<group>"; };
 		71EA5D1222277F4500143FAA /* UNCParkingApplication.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = UNCParkingApplication.entitlements; sourceTree = "<group>"; };
@@ -155,6 +159,8 @@
 				7183B3842209455700B08F8E /* DictPin.swift */,
 				7183B3582208F74100B08F8E /* SecondViewController.swift */,
 				7113F68E224339F900E25036 /* LotDict.swift */,
+				71AC4F2822447D1000C9C41F /* LocationCell.swift */,
+				71AC4F2A224480B700C9C41F /* FirebaseHandler.swift */,
 				71EA5D132228AC7900143FAA /* GoogleService-Info.plist */,
 				63959C36220B00F900702949 /* MoreInfoController.swift */,
 				6352000E223DE7BA00870838 /* ForgotPasswordController.swift */,
@@ -515,8 +521,10 @@
 				71EA5D0F221F97D300143FAA /* PersonDesignationController.swift in Sources */,
 				7183B3872209519000B08F8E /* Pin.swift in Sources */,
 				7183B3592208F74100B08F8E /* SecondViewController.swift in Sources */,
+				71AC4F2B224480B700C9C41F /* FirebaseHandler.swift in Sources */,
 				7183B3552208F74100B08F8E /* AppDelegate.swift in Sources */,
 				7183B389220A797600B08F8E /* TabBarController.swift in Sources */,
+				71AC4F2922447D1000C9C41F /* LocationCell.swift in Sources */,
 				718004212216449D001368A0 /* LoginController.swift in Sources */,
 				636FBF0C2241B90B00AF687C /* ProfileController.swift in Sources */,
 				71800423221E3047001368A0 /* LocationTableController.swift in Sources */,

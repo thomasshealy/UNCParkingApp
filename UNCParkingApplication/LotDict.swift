@@ -16,12 +16,14 @@ class lotDict{
     var lot_num: String!
     var permit_type: String!
     var time: String!
+    var travel_time: TimeInterval!
     
     var lotKey: String!
     
     init(key: String, dictionary: Dictionary<String, AnyObject>){
         
         self.lotKey = key
+        self.travel_time = 999999.9
         
         if let lat = dictionary["lat"] as? Double{
             self.lat = lat
