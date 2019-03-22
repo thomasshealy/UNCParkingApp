@@ -19,6 +19,7 @@ class LocationTableController: UITableViewController, CLLocationManagerDelegate 
     var tempPin1: Pin!
     var lotList = [lotDict]()
     var sortedList = [lotDict]()
+    var tableList = [lotDict]()
     var ref: DatabaseReference!
     
     @IBOutlet var table: UITableView!
@@ -57,6 +58,10 @@ class LocationTableController: UITableViewController, CLLocationManagerDelegate 
                     }
                 }
                //self.sortLots()
+                for lot in self.lotList{
+                    let coord = CLLocationCoordinate2D(latitude: lot.lat, longitude: lot.long)
+                    self.getDriveTime(driveDestination: coord, lot: lot)
+                }
             }
             
         })
@@ -88,7 +93,8 @@ class LocationTableController: UITableViewController, CLLocationManagerDelegate 
         let lotLat = sortedList[indexPath.row].lat
         let lotLong = sortedList[indexPath.row].long
         let lotCoord = CLLocationCoordinate2D(latitude: lotLat ?? 0, longitude: lotLong ?? 0)
-        getDriveTime(walkDestination: lotCoord, label: cell.distanceLabel, lot: sortedList[indexPath.row])
+        //getDriveTime(walkDestination: lotCoord, label: cell.distanceLabel, lot: sortedList[indexPath.row])
+        cell.distanceLabel.text = translateTime(interval: sortedList[indexPath.row].travel_time)
         print("gets called")
         return cell
     }
@@ -115,6 +121,32 @@ class LocationTableController: UITableViewController, CLLocationManagerDelegate 
             self.sortLots()
             self.table.reloadData()
             label.text = driveTime + " Away"
+        }
+        
+    }
+    
+    func getDriveTime(driveDestination: CLLocationCoordinate2D, lot: lotDict){
+        
+        let destinationMark = MKPlacemark(coordinate: driveDestination)
+        let directionDestination = MKMapItem(placemark: destinationMark)
+        let sourceMark = MKPlacemark(coordinate: currentLocation)
+        let directionSource = MKMapItem(placemark: sourceMark)
+        let directionsRequest = MKDirections.Request()
+        directionsRequest.transportType = .automobile
+        directionsRequest.source = directionSource
+        directionsRequest.destination = directionDestination
+        let directions = MKDirections(request: directionsRequest)
+        
+        directions.calculate{(response, _) in
+            guard let response = response else {return}
+            let primaryRoute = response.routes[0] as MKRoute
+            print("creates alert")
+            let driveTime = self.translateTime(interval: primaryRoute.expectedTravelTime)
+            lot.travel_time = primaryRoute.expectedTravelTime
+            self.sortedList.append(lot)
+            self.sortLots()
+            //self.tableList = self.sortedList
+            self.table.reloadData()
         }
         
     }
