@@ -11,7 +11,7 @@ import CoreLocation
 import MapKit
 import Firebase
 
-class LocationTableController: UITableViewController, CLLocationManagerDelegate {
+class LocationTableController: UITableViewController, CLLocationManagerDelegate, locationDelegate {
     
     let locationMgr = CLLocationManager()
     var currentLocation: CLLocationCoordinate2D!
@@ -87,13 +87,13 @@ class LocationTableController: UITableViewController, CLLocationManagerDelegate 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = table.dequeueReusableCell(withIdentifier: "lotCell", for: indexPath) as! LocationCell
-        print("row = ",indexPath.row)
+        cell.delegate = self
         cell.nameLabel.text = sortedList[indexPath.row].lot_name
         cell.accessLabel.text = "Available with " + sortedList[indexPath.row].permit_type + " permit"
         let lotLat = sortedList[indexPath.row].lat
         let lotLong = sortedList[indexPath.row].long
         let lotCoord = CLLocationCoordinate2D(latitude: lotLat ?? 0, longitude: lotLong ?? 0)
-        //getDriveTime(walkDestination: lotCoord, label: cell.distanceLabel, lot: sortedList[indexPath.row])
+        cell.cellCoord = lotCoord
         cell.distanceLabel.text = translateTime(interval: sortedList[indexPath.row].travel_time)
         print("gets called")
         return cell
@@ -161,6 +161,19 @@ class LocationTableController: UITableViewController, CLLocationManagerDelegate 
         else{
             return "Calculating Travel Time..."
         }
+    }
+    
+    func navPressed(cell: LocationCell){
+        getDirections(cell.cellCoord, name: cell.nameLabel.text ?? "Selected Parking Lot")
+    }
+    
+    func getDirections(_ coordinate: CLLocationCoordinate2D, name: String){
+        let placemark = MKPlacemark(coordinate: coordinate, addressDictionary: nil)
+        let mapItem = MKMapItem(placemark: placemark)
+        let launchOptions = [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving]
+        mapItem.name = name
+        mapItem.openInMaps(launchOptions: launchOptions)
+        
     }
     
     func sortLots(){

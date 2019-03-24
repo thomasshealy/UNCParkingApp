@@ -7,6 +7,11 @@
 //
 
 import UIKit
+import MapKit
+
+protocol locationDelegate {
+    func navPressed(cell: LocationCell)
+}
 
 class LocationCell: UITableViewCell {
     
@@ -14,17 +19,23 @@ class LocationCell: UITableViewCell {
     @IBOutlet weak var accessLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
     
+    var cellCoord: CLLocationCoordinate2D!
+    var delegate: locationDelegate?
+
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
-
+    @IBAction func navPressed(_ sender: Any) {
+        if let _ = delegate{
+            delegate?.navPressed(cell: self)
+        }
+    }
+    
 }
