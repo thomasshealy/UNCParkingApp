@@ -108,7 +108,6 @@ class RegisterController: UIViewController, UITextFieldDelegate {
         
         let alertController2 = UIAlertController(title: "Success", message: "Your account was successfully created.", preferredStyle: .alert)
         alertController2.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { (action: UIAlertAction!) in
-            alertController1.dismiss(animated: true, completion: nil)
             self.performSegue(withIdentifier: "toLogin", sender: nil)
         }))
         
