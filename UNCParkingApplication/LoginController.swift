@@ -30,13 +30,9 @@ class LoginController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         if Auth.auth().currentUser != nil {
-            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Tab") as! TabBarController
-            self.present(vc, animated: true, completion: nil)
+            performSegue(withIdentifier: "toTab", sender: self)
         }
     }
- 
- 
-    
 
     func formatTextField(field: UITextField){
         let gray = UIColor.lightGray.cgColor
