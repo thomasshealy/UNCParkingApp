@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		63090A51224ECACF0051C865 /* PermitDict.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63090A50224ECACF0051C865 /* PermitDict.swift */; };
 		6352000F223DE7BA00870838 /* ForgotPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6352000E223DE7BA00870838 /* ForgotPasswordController.swift */; };
 		636FBF0C2241B90B00AF687C /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636FBF0B2241B90B00AF687C /* ProfileController.swift */; };
 		63959C37220B00F900702949 /* MoreInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63959C36220B00F900702949 /* MoreInfoController.swift */; };
@@ -56,6 +57,7 @@
 		1EB860B05321A63F75B6D7B3 /* Pods_UNCParkingApplication.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UNCParkingApplication.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BDAEA0AC388CF5AC3BF9CD4 /* Pods_UNCParkingApplicationTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UNCParkingApplicationTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		51781454A99FFC14F522A70C /* Pods-UNCParkingApplication.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UNCParkingApplication.release.xcconfig"; path = "Pods/Target Support Files/Pods-UNCParkingApplication/Pods-UNCParkingApplication.release.xcconfig"; sourceTree = "<group>"; };
+		63090A50224ECACF0051C865 /* PermitDict.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermitDict.swift; sourceTree = "<group>"; };
 		632A7D120D4CD4DBBB9F9472 /* Pods-UNCParkingApplicationUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UNCParkingApplicationUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-UNCParkingApplicationUITests/Pods-UNCParkingApplicationUITests.release.xcconfig"; sourceTree = "<group>"; };
 		6352000E223DE7BA00870838 /* ForgotPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordController.swift; sourceTree = "<group>"; };
 		636FBF0B2241B90B00AF687C /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 				7183B3842209455700B08F8E /* DictPin.swift */,
 				7183B3582208F74100B08F8E /* SecondViewController.swift */,
 				7113F68E224339F900E25036 /* LotDict.swift */,
+				63090A50224ECACF0051C865 /* PermitDict.swift */,
 				71AC4F2822447D1000C9C41F /* LocationCell.swift */,
 				71AC4F2A224480B700C9C41F /* FirebaseHandler.swift */,
 				71EA5D132228AC7900143FAA /* GoogleService-Info.plist */,
@@ -519,6 +522,7 @@
 			files = (
 				6352000F223DE7BA00870838 /* ForgotPasswordController.swift in Sources */,
 				71EA5D0F221F97D300143FAA /* PersonDesignationController.swift in Sources */,
+				63090A51224ECACF0051C865 /* PermitDict.swift in Sources */,
 				7183B3872209519000B08F8E /* Pin.swift in Sources */,
 				7183B3592208F74100B08F8E /* SecondViewController.swift in Sources */,
 				71AC4F2B224480B700C9C41F /* FirebaseHandler.swift in Sources */,
