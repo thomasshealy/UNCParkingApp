@@ -27,6 +27,13 @@ class LoginController: UIViewController {
         formatTextField(field: passwordField)
 
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if Auth.auth().currentUser != nil {
+            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Tab") as! TabBarController
+            self.present(vc, animated: true, completion: nil)
+        }
+    }
  
  
     

@@ -164,5 +164,25 @@ class ProfileController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         
     }
     
+    @IBAction func signOutButtonPressed(_ sender: Any) {
+        let alertController = UIAlertController(title: "Alert", message: "Are you sure you want to sign out?", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
+            alertController.dismiss(animated: true, completion: nil)
+            if Auth.auth().currentUser != nil {
+                do {
+                    try? Auth.auth().signOut()
+                    
+                    if Auth.auth().currentUser == nil {
+                        let loginVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Login") as! LoginController
+                        self.present(loginVC, animated: true, completion: nil)
+                    }
+                }
+            }
+        }))
+        alertController.addAction(UIAlertAction(title: "No", style: .cancel, handler: { (action: UIAlertAction!) in
+            alertController.dismiss(animated: true, completion: nil)
+        }))
+        self.present(alertController, animated: true, completion: nil)
+    }
     
 }
