@@ -10,8 +10,10 @@ import UIKit
 import Firebase
 
 class ProfileController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+
+    var permitPickerData: [String] = []
     
-    let permitPickerData = [String](arrayLiteral: "A", "BD", "CD", "CG", "DW", "FC", "FG", "JD", "K", "KSD", "L", "M", "MD", "N-8", "N1", "N10", "N11", "N2", "N3", "N4", "N5", "N7", "N8", "N9", "ND", "NG-1", "NG-3", "NG3", "PD", "PR", "R1", "R10", "R11", "R2", "R3", "R4", "R5", "R6", "R7", "R8", "R9", "S1", "S10", "S11", "S12", "S14", "S2", "S3", "S4", "S5", "S6", "S8", "S9", "SFH", "T", "W")
+    var permitList = [PermitDict]()
     
     let typePickerData = [String](arrayLiteral: "Visitor", "Student", "University Employee", "Health Care Employee")
     
@@ -133,7 +135,28 @@ class ProfileController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         }) { (error) in
             print(error.localizedDescription)
         }
-        
+        ref.child("permits").observe(DataEventType.value, with: {(snapshot) in
+            self.permitList = []
+            if let snapshots = snapshot.children.allObjects as? [DataSnapshot] {
+                print("enters if")
+                for snap in snapshots {
+                    if let permitDictionary = snap.value as? Dictionary<String, AnyObject> {
+                        print("enters second if")
+                        let key = snap.key
+                        let permitData = PermitDict(key: key, dictionary: permitDictionary)
+                        print("fire loop running")
+                        self.permitList.append(permitData)
+                        
+                    }
+                }
+                for permit in self.permitList {
+                    self.permitPickerData.append(permit.permit_type)
+                }
+                self.permitPickerData = [String](Set(self.permitPickerData))
+                self.permitPickerData.sort()
+            }
+            
+        })
     }
     
     @IBAction func saveChangesButtonPressed(_ sender: Any) {
