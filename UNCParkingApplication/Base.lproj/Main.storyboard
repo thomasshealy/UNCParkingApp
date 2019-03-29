@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,7 +16,7 @@
             <objects>
                 <viewController id="9pv-A4-QxB" customClass="FirstViewController" customModule="UNCParkingApplication" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KYg-4b-Pq3">
@@ -39,7 +40,9 @@
         <scene sceneID="cTR-ES-IXs">
             <objects>
                 <navigationController id="mhE-dd-eNk" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" image="48pxIcon_Profile_White" selectedImage="48pxIcon_Profile_Blue" id="acE-bY-y2S"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="48pxIcon_Profile_White" selectedImage="48pxIcon_Profile_Blue" id="acE-bY-y2S">
+                        <color key="badgeColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="IHM-wG-ypO">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -103,7 +106,7 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PNJ-M0-D4I">
                                 <rect key="frame" x="16" y="237" width="343" height="48"/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" name="Carolina Blue"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="fNa-pF-Hyd"/>
                                 </constraints>
@@ -116,7 +119,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fgh-Vy-lhk">
                                 <rect key="frame" x="16" y="316" width="343" height="48"/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" name="Carolina Blue"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="dX6-Ia-Ql0"/>
                                 </constraints>
@@ -129,7 +132,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dqO-er-yEY">
                                 <rect key="frame" x="16" y="394" width="343" height="48"/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" name="Carolina Blue"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="xXJ-Mb-pI4"/>
                                 </constraints>
@@ -142,7 +145,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nck-co-RuJ">
                                 <rect key="frame" x="16" y="471" width="343" height="48"/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" name="Carolina Blue"/>
                                 <state key="normal" title="Health Care Employee">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -215,6 +218,7 @@
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q1R-Oc-Eql">
                                 <rect key="frame" x="197" y="150" width="162" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.9999127984046936" green="1" blue="0.99988144636154175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -264,7 +268,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="ebT-eb-bnU"/>
                     </view>
                     <navigationItem key="navigationItem" title="My Profile" id="Bfo-c3-ofI"/>
@@ -283,9 +287,11 @@
         <scene sceneID="yl2-sM-qoP">
             <objects>
                 <tabBarController storyboardIdentifier="Tab" id="49e-Tb-3d3" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
+                    <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <color key="barTintColor" name="Carolina Blue"/>
+                        <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
                         <segue destination="sd9-yL-TBT" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
@@ -296,13 +302,15 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="153" y="11"/>
+            <point key="canvasLocation" x="217" y="38"/>
         </scene>
         <!--More Info-->
         <scene sceneID="nqc-1a-oHQ">
             <objects>
                 <navigationController id="Cp0-dy-mdA" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="More Info" image="48pxIcon_MoreInfo_White" selectedImage="48pxIcon_MoreInfo_Blue" id="TXc-ci-3BB"/>
+                    <tabBarItem key="tabBarItem" title="More Info" image="48pxIcon_MoreInfo_White" selectedImage="48pxIcon_MoreInfo_Blue" id="TXc-ci-3BB">
+                        <color key="badgeColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="B4Y-gt-703">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -386,7 +394,9 @@
         <scene sceneID="f4u-b1-Ipc">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sd9-yL-TBT" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Map" image="48pxIcon_Location_White" selectedImage="48pxIcon_Location_Blue" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="48pxIcon_Location_White" selectedImage="48pxIcon_Location_Blue" id="acW-dT-cKf">
+                        <color key="badgeColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ZcS-99-o1M">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -406,7 +416,7 @@
             <objects>
                 <tableViewController id="pBZ-E5-w2V" customClass="LocationTableController" customModule="UNCParkingApplication" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="101" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Eom-ZK-Ox1">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
@@ -470,11 +480,13 @@
             </objects>
             <point key="canvasLocation" x="2356" y="399.85007496251876"/>
         </scene>
-        <!--Locations-->
+        <!--Lot List-->
         <scene sceneID="JyN-oa-1sj">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RAe-S9-Nbw" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Locations" image="48pxIcon_Map_White" selectedImage="48pxIcon_Map_Blue" id="IJa-Zh-FWJ"/>
+                    <tabBarItem key="tabBarItem" title="Lot List" image="48pxIcon_Map_White" selectedImage="48pxIcon_Map_Blue" id="IJa-Zh-FWJ">
+                        <color key="badgeColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7AX-N6-xrQ">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -525,7 +537,7 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sbs-p1-gmo">
                                 <rect key="frame" x="16" y="412.5" width="343" height="30"/>
-                                <color key="backgroundColor" red="0.001321949065" green="0.015399150550000001" blue="0.39417555929999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" name="Carolina Blue"/>
                                 <state key="normal" title="Login">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -540,7 +552,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a0J-Zt-z8P">
                                 <rect key="frame" x="16" y="464.5" width="343" height="30"/>
-                                <color key="backgroundColor" red="0.001321949065" green="0.015399150550000001" blue="0.39417555929999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" name="Carolina Blue"/>
                                 <state key="normal" title="Sign Up">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -555,7 +567,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EAQ-HY-8zS">
                                 <rect key="frame" x="16" y="516.5" width="343" height="30"/>
-                                <color key="backgroundColor" red="0.001321949065" green="0.015399150550000001" blue="0.39417555929999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" name="Carolina Blue"/>
                                 <state key="normal" title="Forgot Password">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -719,7 +731,7 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Khy-hR-7g0">
                                 <rect key="frame" x="16" y="439" width="343" height="30"/>
-                                <color key="backgroundColor" red="0.001321949065" green="0.015399150550000001" blue="0.39417555929999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" name="Carolina Blue"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="J9f-WO-6Dh"/>
                                 </constraints>
@@ -737,7 +749,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SHX-BN-GaL">
                                 <rect key="frame" x="16" y="477" width="343" height="30"/>
-                                <color key="backgroundColor" red="0.001321949065" green="0.015399150550000001" blue="0.39417555929999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" name="Carolina Blue"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="dox-Ql-k8s"/>
                                 </constraints>
@@ -812,8 +824,11 @@
         <image name="App_Login_Reg_Blue" width="1025" height="1025"/>
         <image name="Car" width="90" height="90"/>
         <image name="first" width="30" height="30"/>
+        <namedColor name="Carolina Blue">
+            <color red="0.29411764705882354" green="0.61176470588235299" blue="0.82745098039215681" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="QSK-0u-UQM"/>
+        <segue reference="oZd-VR-o32"/>
     </inferredMetricsTieBreakers>
 </document>
