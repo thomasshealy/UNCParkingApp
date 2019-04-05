@@ -10,16 +10,16 @@ import Foundation
 
 class Pin{
     
-    var lat: Double
-    var long: Double
+    var latitude: Double
+    var longitude: Double
     var username: String
     var description: String
     var title: String
     var link: String
-    init(lat: Double, long: Double, username: String, title: String, description: String, link: String
+    init(latitude: Double, longitude: Double, username: String, title: String, description: String, link: String
         ){
-        self.lat = lat
-        self.long = long
+        self.latitude = latitude
+        self.longitude = longitude
         self.username = username
         self.description = description
         self.title = title

@@ -41,8 +41,8 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         mapView.delegate = self
         
         
-        tempPin = Pin(lat: 35.903269, long: -79.041565, username: "Some Username", title: "UNC Hospital Lot", description: "Available after 5pm", link: "Some link")
-        tempPin1 = Pin(lat: 35.912840, long: -79.047110, username: "Some Username", title: "Cobb Parking Deck", description: "Available with student parking pass", link: "Some link")
+        tempPin = Pin(latitude: 35.903269, longitude: -79.041565, username: "Some Username", title: "UNC Hospital Lot", description: "Available after 5pm", link: "Some link")
+        tempPin1 = Pin(latitude: 35.912840, longitude: -79.047110, username: "Some Username", title: "Cobb Parking Deck", description: "Available with student parking pass", link: "Some link")
         //Do some kind of iteration here where you loop through all of the coordinates and call translateCoords
         
         ref.child("lots").observe(DataEventType.value, with: { snapshot in
@@ -71,9 +71,9 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
             print("MKAnnotationView creation called")
             var annotation: MKAnnotation
             annotation = view.annotation!
-            let lat = annotation.coordinate.latitude
-            let long = annotation.coordinate.longitude
-            let coordinates = CLLocationCoordinate2DMake(lat, long)
+            let latitude = annotation.coordinate.latitude
+            let longitude = annotation.coordinate.longitude
+            let coordinates = CLLocationCoordinate2DMake(latitude, longitude)
             let launchOptions = [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving]
             let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
             let mapItem = MKMapItem(placemark: placemark)
@@ -104,9 +104,9 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
  
     
     func directionsfromPin(_ pin: DictPin){
-        let lat = pin.pinLat
-        let long = pin.pinLong
-        let coordinates = CLLocationCoordinate2DMake(lat!, long!)
+        let latitude = pin.pinLatitude
+        let longitude = pin.pinLongitude
+        let coordinates = CLLocationCoordinate2DMake(latitude!, longitude!)
         let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
         let mapItem = MKMapItem(placemark: placemark)
         let launchOptions = [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving]
@@ -122,10 +122,10 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
     
     func markMap(_ pin: lotDict){
         let annotation = MKPointAnnotation()
-        annotation.coordinate.latitude = pin.lat
-        print(pin.lat)
-        print(pin.long)
-        annotation.coordinate.longitude = pin.long
+        annotation.coordinate.latitude = pin.latitude
+        print(pin.latitude)
+        print(pin.longitude)
+        annotation.coordinate.longitude = pin.longitude
         annotation.title = pin.lot_name
         annotation.subtitle = "Available with " + pin.permit_type + " pass"
         mapView.addAnnotation(annotation)
@@ -158,7 +158,7 @@ extension FirstViewController{
             let region = MKCoordinateRegion(center: location.coordinate, span: span)
             
             self.mapView.setRegion(region, animated: true)
-            self.tempPin = Pin(lat: 35.903269, long: -79.041565, username: "Some Username", title: "UNC Hospital", description: "Availabile after 5pm", link: "Some link")
+            self.tempPin = Pin(latitude: 35.903269, longitude: -79.041565, username: "Some Username", title: "UNC Hospital", description: "Availabile after 5pm", link: "Some link")
             
            // self.markMap(tempPin)
         }

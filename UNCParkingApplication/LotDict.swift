@@ -9,8 +9,8 @@
 import Foundation
 
 class lotDict{
-    var lat: Double!
-    var long: Double!
+    var latitude: Double!
+    var longitude: Double!
     var object_id: Int!
     var lot_name: String!
     var lot_num: String!
@@ -25,11 +25,11 @@ class lotDict{
         self.lotKey = key
         self.travel_time = 999999.9
         
-        if let lat = dictionary["lat"] as? Double{
-            self.lat = lat
+        if let latitude = dictionary["latitude"] as? Double{
+            self.latitude = latitude
         }
-        if let long = dictionary["long"] as? Double{
-            self.long = long
+        if let longitude = dictionary["longitude"] as? Double{
+            self.longitude = longitude
         }
         if let object_id = dictionary["object_id"] as? Int{
             self.object_id = object_id

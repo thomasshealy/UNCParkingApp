@@ -36,8 +36,8 @@ class LocationTableController: UITableViewController, CLLocationManagerDelegate,
         self.locationMgr.requestLocation()
         self.locationMgr.startUpdatingLocation()
         
-        tempPin = Pin(lat: 35.903269, long: -79.041565, username: "Some Username", title: "UNC Hospital Lot", description: "Available after 5pm", link: "Some link")
-        tempPin1 = Pin(lat: 35.912840, long: -79.047110, username: "Some Username", title: "Cobb Parking Deck", description: "Available with student parking pass", link: "Some link")
+        tempPin = Pin(latitude: 35.903269, longitude: -79.041565, username: "Some Username", title: "UNC Hospital Lot", description: "Available after 5pm", link: "Some link")
+        tempPin1 = Pin(latitude: 35.912840, longitude: -79.047110, username: "Some Username", title: "Cobb Parking Deck", description: "Available with student parking pass", link: "Some link")
         
         table.delegate = self
         table.dataSource = self
@@ -59,7 +59,7 @@ class LocationTableController: UITableViewController, CLLocationManagerDelegate,
                 }
                //self.sortLots()
                 for lot in self.lotList{
-                    let coord = CLLocationCoordinate2D(latitude: lot.lat, longitude: lot.long)
+                    let coord = CLLocationCoordinate2D(latitude: lot.latitude, longitude: lot.longitude)
                     self.getDriveTime(driveDestination: coord, lot: lot)
                 }
             }
@@ -69,11 +69,11 @@ class LocationTableController: UITableViewController, CLLocationManagerDelegate,
     }
     
     func addLabels(){
-        tempPin = Pin(lat: 35.903269, long: -79.041565, username: "Some Username", title: "UNC Hospital Lot", description: "Available after 5pm", link: "Some link")
-        tempPin1 = Pin(lat: 35.912840, long: -79.047110, username: "Some Username", title: "Cobb Parking Deck", description: "Available with student parking pass", link: "Some link")
+        tempPin = Pin(latitude: 35.903269, longitude: -79.041565, username: "Some Username", title: "UNC Hospital Lot", description: "Available after 5pm", link: "Some link")
+        tempPin1 = Pin(latitude: 35.912840, longitude: -79.047110, username: "Some Username", title: "Cobb Parking Deck", description: "Available with student parking pass", link: "Some link")
         
-        let loc0 = CLLocationCoordinate2D(latitude: tempPin.lat, longitude: tempPin.long)
-        let loc1 = CLLocationCoordinate2D(latitude: tempPin1.lat, longitude: tempPin1.long)
+        let loc0 = CLLocationCoordinate2D(latitude: tempPin.latitude, longitude: tempPin.longitude)
+        let loc1 = CLLocationCoordinate2D(latitude: tempPin1.latitude, longitude: tempPin1.longitude)
         
     }
 
@@ -90,9 +90,9 @@ class LocationTableController: UITableViewController, CLLocationManagerDelegate,
         cell.delegate = self
         cell.nameLabel.text = sortedList[indexPath.row].lot_name
         cell.accessLabel.text = "Available with " + sortedList[indexPath.row].permit_type + " permit"
-        let lotLat = sortedList[indexPath.row].lat
-        let lotLong = sortedList[indexPath.row].long
-        let lotCoord = CLLocationCoordinate2D(latitude: lotLat ?? 0, longitude: lotLong ?? 0)
+        let lotLatitude = sortedList[indexPath.row].latitude
+        let lotLongitude = sortedList[indexPath.row].longitude
+        let lotCoord = CLLocationCoordinate2D(latitude: lotLatitude ?? 0, longitude: lotLongitude ?? 0)
         cell.cellCoord = lotCoord
         cell.distanceLabel.text = translateTime(interval: sortedList[indexPath.row].travel_time)
         print("gets called")
@@ -202,8 +202,8 @@ extension LocationTableController{
     }
     //Sets where the map initially zooms into and determines how far in the zoom is.
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
-        if let lat = locationMgr.location?.coordinate.latitude, let long = locationMgr.location?.coordinate.longitude{
-            currentLocation = CLLocationCoordinate2D(latitude: lat, longitude: long)
+        if let latitude = locationMgr.location?.coordinate.latitude, let longitude = locationMgr.location?.coordinate.longitude{
+            currentLocation = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
             addLabels()
         }
     }

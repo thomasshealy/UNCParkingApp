@@ -11,8 +11,8 @@ import Foundation
 //Stores pin data as dictionaries for easier Firebase reading/writing.
 //Values can be retrieved easily through the instance variables.
 class DictPin{
-    var pinLat: Double!
-    var pinLong: Double!
+    var pinLatitude: Double!
+    var pinLongitude: Double!
     var pinUsername: String!
     var pinDescription: String!
     var pinTitle: String!
@@ -23,11 +23,11 @@ class DictPin{
         
         self.pinKey = key
         
-        if let lat = dictionary["lat"] as? Double{
-            self.pinLat = lat
+        if let latitude = dictionary["latitude"] as? Double{
+            self.pinLatitude = latitude
         }
-        if let long = dictionary["long"] as? Double{
-            self.pinLong = long
+        if let longitude = dictionary["longitude"] as? Double{
+            self.pinLongitude = longitude
         }
         if let username = dictionary["username"] as? String{
             self.pinUsername = username
