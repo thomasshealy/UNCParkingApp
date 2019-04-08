@@ -509,8 +509,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="App_Login_Reg_Blue" translatesAutoresizingMaskIntoConstraints="NO" id="MJB-AY-6PJ">
-                                <rect key="frame" x="16" y="28" width="343" height="241"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="App_Login_Reg_Blue" translatesAutoresizingMaskIntoConstraints="NO" id="MJB-AY-6PJ">
+                                <rect key="frame" x="34" y="28" width="302" height="240.5"/>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aue-cy-bhN">
                                 <rect key="frame" x="16" y="318.5" width="343" height="30"/>
@@ -583,7 +583,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="MJB-AY-6PJ" firstAttribute="leading" secondItem="aue-cy-bhN" secondAttribute="leading" id="1dD-bH-eVL"/>
+                            <constraint firstItem="MJB-AY-6PJ" firstAttribute="leading" secondItem="aue-cy-bhN" secondAttribute="leading" constant="18" id="1dD-bH-eVL"/>
                             <constraint firstItem="a0J-Zt-z8P" firstAttribute="trailing" secondItem="EAQ-HY-8zS" secondAttribute="trailing" id="BdL-18-MrU"/>
                             <constraint firstItem="aue-cy-bhN" firstAttribute="trailing" secondItem="6VD-mu-Tjv" secondAttribute="trailingMargin" id="H6O-Bs-tIb"/>
                             <constraint firstItem="Gby-IM-oth" firstAttribute="trailing" secondItem="sbs-p1-gmo" secondAttribute="trailing" id="Jt6-Up-stW"/>
@@ -592,7 +592,7 @@
                             <constraint firstItem="EAQ-HY-8zS" firstAttribute="top" secondItem="a0J-Zt-z8P" secondAttribute="bottom" constant="22" id="OZ8-re-Pwd"/>
                             <constraint firstItem="sbs-p1-gmo" firstAttribute="leading" secondItem="a0J-Zt-z8P" secondAttribute="leading" id="TDs-qP-u5p"/>
                             <constraint firstItem="aue-cy-bhN" firstAttribute="leading" secondItem="Gby-IM-oth" secondAttribute="leading" id="Zx4-fI-YlC"/>
-                            <constraint firstItem="MJB-AY-6PJ" firstAttribute="leading" secondItem="6VD-mu-Tjv" secondAttribute="leadingMargin" id="ZyM-tn-svv"/>
+                            <constraint firstItem="MJB-AY-6PJ" firstAttribute="leading" secondItem="6VD-mu-Tjv" secondAttribute="leadingMargin" constant="18" id="ZyM-tn-svv"/>
                             <constraint firstItem="aue-cy-bhN" firstAttribute="centerY" secondItem="6VD-mu-Tjv" secondAttribute="centerY" id="aJw-ff-r3s"/>
                             <constraint firstItem="aue-cy-bhN" firstAttribute="top" secondItem="MJB-AY-6PJ" secondAttribute="bottom" constant="50" id="aPW-ly-pqm"/>
                             <constraint firstItem="a0J-Zt-z8P" firstAttribute="top" secondItem="sbs-p1-gmo" secondAttribute="bottom" constant="22" id="dX7-0L-XIf"/>
@@ -600,7 +600,7 @@
                             <constraint firstItem="sbs-p1-gmo" firstAttribute="trailing" secondItem="a0J-Zt-z8P" secondAttribute="trailing" id="kJW-yr-paY"/>
                             <constraint firstItem="sbs-p1-gmo" firstAttribute="top" secondItem="Gby-IM-oth" secondAttribute="bottom" constant="27" id="rLJ-f1-8T8"/>
                             <constraint firstItem="a0J-Zt-z8P" firstAttribute="leading" secondItem="EAQ-HY-8zS" secondAttribute="leading" id="reK-Ev-t5m"/>
-                            <constraint firstAttribute="trailing" secondItem="MJB-AY-6PJ" secondAttribute="trailing" id="vR0-WH-62f"/>
+                            <constraint firstAttribute="trailing" secondItem="MJB-AY-6PJ" secondAttribute="trailing" constant="39" id="vR0-WH-62f"/>
                             <constraint firstItem="aue-cy-bhN" firstAttribute="trailing" secondItem="Gby-IM-oth" secondAttribute="trailing" id="yhk-Va-BDX"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zZI-EQ-MKk"/>
@@ -699,9 +699,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="App_Login_Reg_Blue" translatesAutoresizingMaskIntoConstraints="NO" id="J2X-4e-9ub">
-                                <rect key="frame" x="12" y="20" width="347" height="209"/>
-                            </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="36g-K9-Khb">
                                 <rect key="frame" x="16" y="315" width="343" height="30"/>
                                 <constraints>
@@ -774,10 +771,13 @@
                                     <segue destination="36P-WD-chI" kind="show" id="oZd-VR-o32"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="App_Login_Reg_Blue" translatesAutoresizingMaskIntoConstraints="NO" id="J2X-4e-9ub">
+                                <rect key="frame" x="38" y="20" width="298" height="209"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="J2X-4e-9ub" firstAttribute="leading" secondItem="D4u-la-Fp6" secondAttribute="leading" constant="12" id="3P4-TF-FS9"/>
+                            <constraint firstItem="J2X-4e-9ub" firstAttribute="leading" secondItem="D4u-la-Fp6" secondAttribute="leading" constant="38" id="3P4-TF-FS9"/>
                             <constraint firstItem="hlO-cq-T9r" firstAttribute="leading" secondItem="36g-K9-Khb" secondAttribute="leading" id="6O2-Bh-LiW"/>
                             <constraint firstItem="hlO-cq-T9r" firstAttribute="top" secondItem="36g-K9-Khb" secondAttribute="bottom" constant="8" symbolic="YES" id="6Xc-uE-924"/>
                             <constraint firstItem="36g-K9-Khb" firstAttribute="leading" secondItem="eyb-3b-4hi" secondAttribute="leading" id="6lG-1n-UA8"/>
@@ -787,7 +787,7 @@
                             <constraint firstItem="eyb-3b-4hi" firstAttribute="top" secondItem="36g-K9-Khb" secondAttribute="bottom" constant="46" id="Gbl-Ay-95S"/>
                             <constraint firstItem="36g-K9-Khb" firstAttribute="trailing" secondItem="eyb-3b-4hi" secondAttribute="trailing" id="IbD-y7-Il0"/>
                             <constraint firstItem="lXh-fj-i3J" firstAttribute="top" secondItem="G1J-lo-Jwp" secondAttribute="bottom" constant="8" symbolic="YES" id="J2U-t7-zrg"/>
-                            <constraint firstAttribute="trailing" secondItem="J2X-4e-9ub" secondAttribute="trailing" constant="16" id="Ki2-8B-bic"/>
+                            <constraint firstAttribute="trailing" secondItem="J2X-4e-9ub" secondAttribute="trailing" constant="39" id="Ki2-8B-bic"/>
                             <constraint firstItem="Khy-hR-7g0" firstAttribute="leading" secondItem="SHX-BN-GaL" secondAttribute="leading" id="Liy-Sr-nGU"/>
                             <constraint firstItem="G1J-lo-Jwp" firstAttribute="top" secondItem="J2X-4e-9ub" secondAttribute="bottom" constant="10" id="QNb-xy-J8m"/>
                             <constraint firstItem="hmF-c2-uFe" firstAttribute="leading" secondItem="Khy-hR-7g0" secondAttribute="leading" id="SJQ-rG-w5k"/>
