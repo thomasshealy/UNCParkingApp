@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import FirebaseUI
 
-class RegisterController: UIViewController, UITextFieldDelegate {
+class RegisterController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBOutlet weak var firstName: UITextField!
     @IBOutlet weak var lastName: UITextField!
@@ -21,17 +21,73 @@ class RegisterController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var registerButton: UIButton!
     @IBOutlet weak var backButton: UIButton!
     
+    var permitPickerData: [String] = []
+    var permitList = [PermitDict]()
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return permitPickerData.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return permitPickerData[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        passField.text = permitPickerData[row]
+        self.view.endEditing(true)
+    }
+    
     var userID: String!
     var ref: DatabaseReference!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let permitPicker = UIPickerView()
+        permitPicker.delegate = self
+        
+        passField.inputView = permitPicker
+        
         ref = Database.database().reference()
+        
+        ref.child("permits").observe(DataEventType.value, with: {(snapshot) in
+            self.permitList = []
+            if let snapshots = snapshot.children.allObjects as? [DataSnapshot] {
+                print("enters if")
+                for snap in snapshots {
+                    if let permitDictionary = snap.value as? Dictionary<String, AnyObject> {
+                        print("enters second if")
+                        let key = snap.key
+                        let permitData = PermitDict(key: key, dictionary: permitDictionary)
+                        print("fire loop running")
+                        self.permitList.append(permitData)
+                        
+                    }
+                }
+                var tempData: [String] = []
+                for permit in self.permitList {
+                    tempData.append(permit.permit_type)
+                }
+                tempData = [String](Set(tempData))
+                tempData.sort()
+                self.permitPickerData.append("None")
+                for x in tempData {
+                    self.permitPickerData.append(x)
+                }
+                
+                
+            }
+            
+        })
         
         firstName.delegate = self
         lastName.delegate = self
         emailAddress.delegate = self
+        //passField.delegate = self
         passwordField.delegate = self
         confirmationField.delegate = self
         
@@ -130,7 +186,7 @@ class RegisterController: UIViewController, UITextFieldDelegate {
                         "lastName": self.lastName.text as AnyObject,
                         "email": self.emailAddress.text as AnyObject,
                         "type": "None" as AnyObject,
-                        "permits": ["None"] as AnyObject,
+                        "permits": [self.passField.text] as AnyObject,
                         "push_notifications": true as AnyObject
                     ]
                     let userID = Auth.auth().currentUser!.uid
