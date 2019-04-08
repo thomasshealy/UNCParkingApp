@@ -15,6 +15,7 @@ class RegisterController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var firstName: UITextField!
     @IBOutlet weak var lastName: UITextField!
     @IBOutlet weak var emailAddress: UITextField!
+    @IBOutlet weak var passField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var confirmationField: UITextField!
     @IBOutlet weak var registerButton: UIButton!
@@ -38,6 +39,7 @@ class RegisterController: UIViewController, UITextFieldDelegate {
         formatTextField(field: firstName)
         formatTextField(field: lastName)
         formatTextField(field: emailAddress)
+        formatTextField(field: passField)
         formatTextField(field: passwordField)
         formatTextField(field: confirmationField)
         
@@ -117,7 +119,7 @@ class RegisterController: UIViewController, UITextFieldDelegate {
         
         if(firstName.hasText && lastName.hasText && emailAddress.hasText
             && passwordField.hasText && confirmationField.hasText && password == confirm
-            && isValidEmail(testStr: email!)){
+            && isValidEmail(testStr: email!)) && passField.hasText{
             
             Auth.auth().createUser(withEmail: email!, password: password!, completion: { (auth, error) in
                 if error == nil {
@@ -127,8 +129,8 @@ class RegisterController: UIViewController, UITextFieldDelegate {
                         "firstName": self.firstName.text as AnyObject,
                         "lastName": self.lastName.text as AnyObject,
                         "email": self.emailAddress.text as AnyObject,
-                        "type": "place_holder" as AnyObject,
-                        "permits": ["place_holder"] as AnyObject,
+                        "type": "None" as AnyObject,
+                        "permits": ["None"] as AnyObject,
                         "push_notifications": true as AnyObject
                     ]
                     let userID = Auth.auth().currentUser!.uid

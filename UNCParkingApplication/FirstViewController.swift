@@ -38,6 +38,7 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         self.locationMgr.requestWhenInUseAuthorization()
         self.locationMgr.desiredAccuracy = kCLLocationAccuracyBest
         self.locationMgr.requestLocation()
+        
         mapView.delegate = self
         
         
@@ -68,7 +69,6 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl){
         if(view.annotation != nil){
-            print("MKAnnotationView creation called")
             var annotation: MKAnnotation
             annotation = view.annotation!
             let latitude = annotation.coordinate.latitude
@@ -83,12 +83,9 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView?{
-        print("MKAnnotation return called before nil")
         if annotation is MKUserLocation {
             return nil
         }
-        
-        print("MKAnnotation return called")
         let identifier = "pin"
         var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKPinAnnotationView
         pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
@@ -101,24 +98,6 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         
         return pinView
     }
- 
-    
-    func directionsfromPin(_ pin: DictPin){
-        let latitude = pin.pinLatitude
-        let longitude = pin.pinLongitude
-        let coordinates = CLLocationCoordinate2DMake(latitude!, longitude!)
-        let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
-        let mapItem = MKMapItem(placemark: placemark)
-        let launchOptions = [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving]
-        mapItem.openInMaps(launchOptions: launchOptions)
-        
-    }
-    
-    func addLots(){
-        for lot in lotList{
-            markMap(lot)
-        }
-    }
     
     func markMap(_ pin: lotDict){
         let annotation = MKPointAnnotation()
@@ -130,6 +109,12 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         annotation.subtitle = "Available with " + pin.permit_type + " pass"
         mapView.addAnnotation(annotation)
         print("Gets called")
+    }
+    
+    func addLots(){
+        for lot in lotList{
+            markMap(lot)
+        }
     }
     
     func registerUserProperty(property: [String]){
@@ -158,9 +143,6 @@ extension FirstViewController{
             let region = MKCoordinateRegion(center: location.coordinate, span: span)
             
             self.mapView.setRegion(region, animated: true)
-            self.tempPin = Pin(latitude: 35.903269, longitude: -79.041565, username: "Some Username", title: "UNC Hospital", description: "Availabile after 5pm", link: "Some link")
-            
-           // self.markMap(tempPin)
         }
     }
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error){
