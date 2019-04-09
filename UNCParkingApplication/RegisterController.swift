@@ -43,6 +43,7 @@ class RegisterController: UIViewController, UITextFieldDelegate {
         formatTextField(field: passwordField)
         formatTextField(field: confirmationField)
         
+        //passwordField.text = String.fontAwesomeIcon(name: .github)
     self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(RegisterController.dismissKeyboard)))
 
        

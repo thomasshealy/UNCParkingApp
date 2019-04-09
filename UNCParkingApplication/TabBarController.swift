@@ -7,7 +7,6 @@
 //
 
 import UIKit
-
 class TabBarController: UITabBarController {
     
     var scaleFactor = CGSize(width: 2.0, height: 2.0)
@@ -25,6 +24,7 @@ class TabBarController: UITabBarController {
         
         var info = UIImage(named: "48pxIcon_MoreInfo_White")
         info = info?.resizedImage(newSize: scaleFactor)
+        
         
         
         
