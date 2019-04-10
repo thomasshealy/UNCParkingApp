@@ -18,11 +18,6 @@ class ForgotPasswordController: UIViewController {
         super.viewDidLoad()
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(ForgotPasswordController.dismissKeyboard)))
         formatTextField(field: emailTextField)
-        let image = UIImageView(frame: view.bounds)
-        image.image = UIImage(named: "Background")
-        view.backgroundColor = UIColor.clear
-        view.addSubview(image)
-        view.sendSubviewToBack(image)
     }
     
     @IBAction func resetPasswordButtonPressed(_ sender: Any) {

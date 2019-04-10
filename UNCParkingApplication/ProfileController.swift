@@ -177,6 +177,7 @@ class ProfileController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         
         ref = Database.database().reference()
         ref.child("users").child(Auth.auth().currentUser!.uid).updateChildValues(updates)
+        Analytics.setUserProperty(permitField.text, forName: "Parking_Passes")
         
         let alertController = UIAlertController(title: "Success", message: "Profile information updated.", preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { (action: UIAlertAction!) in

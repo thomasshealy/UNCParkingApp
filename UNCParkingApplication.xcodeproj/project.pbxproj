@@ -13,6 +13,8 @@
 		63959C37220B00F900702949 /* MoreInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63959C36220B00F900702949 /* MoreInfoController.swift */; };
 		7113F68F224339F900E25036 /* LotDict.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7113F68E224339F900E25036 /* LotDict.swift */; };
 		71750D58225C194100AF074F /* line-awesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 71750D57225C194000AF074F /* line-awesome.ttf */; };
+		71750D5C225D639D00AF074F /* NotificationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71750D5B225D639D00AF074F /* NotificationHandler.swift */; };
+		71750D5E225D853B00AF074F /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71750D5D225D853B00AF074F /* NavigationController.swift */; };
 		7180041D22163EE6001368A0 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7180041C22163EE6001368A0 /* RegisterController.swift */; };
 		718004212216449D001368A0 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718004202216449D001368A0 /* LoginController.swift */; };
 		71800423221E3047001368A0 /* LocationTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71800422221E3044001368A0 /* LocationTableController.swift */; };
@@ -67,6 +69,8 @@
 		6B888C9743D012F2AAC85258 /* Pods-UNCParkingApplicationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UNCParkingApplicationTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-UNCParkingApplicationTests/Pods-UNCParkingApplicationTests.release.xcconfig"; sourceTree = "<group>"; };
 		7113F68E224339F900E25036 /* LotDict.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LotDict.swift; sourceTree = "<group>"; };
 		71750D57225C194000AF074F /* line-awesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "line-awesome.ttf"; path = "../../../Downloads/line-awesome/line-awesome/fonts/line-awesome.ttf"; sourceTree = "<group>"; };
+		71750D5B225D639D00AF074F /* NotificationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHandler.swift; sourceTree = "<group>"; };
+		71750D5D225D853B00AF074F /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		7180041C22163EE6001368A0 /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
 		718004202216449D001368A0 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		71800422221E3044001368A0 /* LocationTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableController.swift; sourceTree = "<group>"; };
@@ -160,6 +164,8 @@
 				71EA5D0E221F97D300143FAA /* PersonDesignationController.swift */,
 				7183B3562208F74100B08F8E /* FirstViewController.swift */,
 				7183B388220A797600B08F8E /* TabBarController.swift */,
+				71750D5D225D853B00AF074F /* NavigationController.swift */,
+				71750D5B225D639D00AF074F /* NotificationHandler.swift */,
 				7183B3862209519000B08F8E /* Pin.swift */,
 				7183B3842209455700B08F8E /* DictPin.swift */,
 				7183B3582208F74100B08F8E /* SecondViewController.swift */,
@@ -543,6 +549,8 @@
 				71EA5D11221FABC300143FAA /* ParkingPassController.swift in Sources */,
 				7183B3572208F74100B08F8E /* FirstViewController.swift in Sources */,
 				7183B3852209455700B08F8E /* DictPin.swift in Sources */,
+				71750D5E225D853B00AF074F /* NavigationController.swift in Sources */,
+				71750D5C225D639D00AF074F /* NotificationHandler.swift in Sources */,
 				7113F68F224339F900E25036 /* LotDict.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

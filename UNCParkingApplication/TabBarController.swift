@@ -9,21 +9,21 @@
 import UIKit
 class TabBarController: UITabBarController {
     
-    var scaleFactor = CGSize(width: 2.0, height: 2.0)
+    var scaleFactor = CGSize(width: 40, height: 40)
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        var map = UIImage(named: "map_marker")
-        //map = map?.resizedImage(newSize: scaleFactor)
+        var map = UIImage(named: "48pxIcon_Location_White")
+        map = map?.resizedImage(newSize: scaleFactor)
         
-        var locations = UIImage(named: "48pxIcon_Map_White")
-       // locations = locations?.resizedImage(newSize: scaleFactor)
+        var locations = UIImage(named: "48pxIcon_Car_White")
+        locations = locations?.resizedImage(newSize: scaleFactor)
         
         var profile = UIImage(named: "48pxIcon_Profile_White")
-       // profile = profile?.resizedImage(newSize: scaleFactor)
+        profile = profile?.resizedImage(newSize: scaleFactor)
         
         var info = UIImage(named: "48pxIcon_MoreInfo_White")
-       // info = info?.resizedImage(newSize: scaleFactor)
+        info = info?.resizedImage(newSize: scaleFactor)
         
         
         
