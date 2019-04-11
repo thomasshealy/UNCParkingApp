@@ -20,6 +20,8 @@ class LocationTableController: UITableViewController, CLLocationManagerDelegate,
     var lotList = [lotDict]()
     var sortedList = [lotDict]()
     var tableList = [lotDict]()
+    var distanceList = [lotDict]()
+    var sortedDistanceList = [lotDict]()
     var ref: DatabaseReference!
     
     @IBOutlet var table: UITableView!
@@ -59,6 +61,11 @@ class LocationTableController: UITableViewController, CLLocationManagerDelegate,
                 }
                //self.sortLots()
                 for lot in self.lotList{
+                    //let coord = CLLocationCoordinate2D(latitude: lot.latitude, longitude: lot.longitude)
+                    self.calculateDistance(toMeasure: lot)
+                    //self.getDriveTime(driveDestination: coord, lot: lot)
+                }
+                for lot in self.sortedDistanceList.prefix(through: 10){
                     let coord = CLLocationCoordinate2D(latitude: lot.latitude, longitude: lot.longitude)
                     self.getDriveTime(driveDestination: coord, lot: lot)
                 }
@@ -66,6 +73,23 @@ class LocationTableController: UITableViewController, CLLocationManagerDelegate,
             
         })
         
+    }
+    
+    func calculateDistance(toMeasure: lotDict){
+        
+        let curLocation = CLLocation(latitude: currentLocation.latitude, longitude: currentLocation.longitude)
+        let destinationLoc = CLLocation(latitude: toMeasure.latitude, longitude: toMeasure.longitude)
+    
+        let distanceTo = metersToMiles(toConvert: curLocation.distance(from: destinationLoc))
+        toMeasure.travel_distance = distanceTo
+        sortedDistanceList.append(toMeasure)
+        sortDistance()
+    }
+    
+    func metersToMiles(toConvert: Double) -> Double{
+        var result = toConvert/1609.34
+        result = result.roundTo(toPlaces: 2)
+        return result
     }
     
     func addLabels(){
@@ -140,7 +164,6 @@ class LocationTableController: UITableViewController, CLLocationManagerDelegate,
         directions.calculate{(response, _) in
             guard let response = response else {return}
             let primaryRoute = response.routes[0] as MKRoute
-            print("creates alert")
             let driveTime = self.translateTime(interval: primaryRoute.expectedTravelTime)
             lot.travel_time = primaryRoute.expectedTravelTime
             self.sortedList.append(lot)
@@ -177,7 +200,6 @@ class LocationTableController: UITableViewController, CLLocationManagerDelegate,
     }
     
     func sortLots(){
-        
         for i in 0..<sortedList.count{
             for j in 1..<sortedList.count{
                 if sortedList[j].travel_time < sortedList[j-1].travel_time{
@@ -187,7 +209,18 @@ class LocationTableController: UITableViewController, CLLocationManagerDelegate,
                 }
             }
         }
-
+    }
+    
+    func sortDistance(){
+        for i in 0..<sortedDistanceList.count{
+            for j in 1..<sortedDistanceList.count{
+                if sortedDistanceList[j].travel_distance < sortedDistanceList[j-1].travel_distance{
+                    let tmp = sortedDistanceList[j-1]
+                    sortedDistanceList[j-1] = sortedDistanceList[j]
+                    sortedDistanceList[j] = tmp
+                }
+            }
+        }
     }
 
 }
@@ -212,3 +245,11 @@ extension LocationTableController{
         print("error:: (error)")
     }
 }
+
+extension Double{
+    func roundTo(toPlaces places: Int) -> Double{
+        let divisor = pow(10.0, Double(places))
+        return (self*divisor).rounded() / divisor
+    }
+}
+
