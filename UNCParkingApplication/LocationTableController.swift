@@ -11,7 +11,32 @@ import CoreLocation
 import MapKit
 import Firebase
 
-class LocationTableController: UITableViewController, CLLocationManagerDelegate, locationDelegate {
+class LocationTableController: UITableViewController, CLLocationManagerDelegate, locationDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    @IBOutlet weak var filterField: UITextField!
+    
+    var permitPickerData: [String] = []
+    var permitList = [PermitDict]()
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return permitPickerData.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return permitPickerData[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        filterList(permit: permitPickerData[row])
+        self.view.endEditing(true)
+        filterField.resignFirstResponder()
+    }
+    
+    
     
     let locationMgr = CLLocationManager()
     var currentLocation: CLLocationCoordinate2D!
@@ -28,6 +53,11 @@ class LocationTableController: UITableViewController, CLLocationManagerDelegate,
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let permitPicker = UIPickerView()
+        permitPicker.delegate = self
+        
+        filterField.inputView = permitPicker
+        
         ref = Database.database().reference()
 
         self.locationMgr.delegate = self
@@ -42,29 +72,45 @@ class LocationTableController: UITableViewController, CLLocationManagerDelegate,
         table.delegate = self
         table.dataSource = self
         
-        ref.child("lots").observe(DataEventType.value, with: { snapshot in
-            self.lotList = []
+        ref.child("permits").observe(DataEventType.value, with: {(snapshot) in
+            self.permitList = []
             if let snapshots = snapshot.children.allObjects as? [DataSnapshot] {
                 print("enters if")
                 for snap in snapshots {
-                    if let postDictionary = snap.value as? Dictionary<String, AnyObject> {
+                    if let permitDictionary = snap.value as? Dictionary<String, AnyObject> {
                         print("enters second if")
                         let key = snap.key
-                        let lotData = lotDict(key: key, dictionary: postDictionary)
+                        let permitData = PermitDict(key: key, dictionary: permitDictionary)
                         print("fire loop running")
-                        self.lotList.append(lotData)
-                        self.table.reloadData()
+                        self.permitList.append(permitData)
                         
                     }
                 }
-               //self.sortLots()
-                for lot in self.lotList{
-                    let coord = CLLocationCoordinate2D(latitude: lot.latitude, longitude: lot.longitude)
-                    self.getDriveTime(driveDestination: coord, lot: lot)
+                var tempData: [String] = []
+                for permit in self.permitList {
+                    tempData.append(permit.permit_type)
                 }
+                tempData = [String](Set(tempData))
+                tempData.sort()
+                self.permitPickerData.append("All")
+                for x in tempData {
+                    self.permitPickerData.append(x)
+                }
+                
+                
             }
             
         })
+        
+    ref.child("users").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value, with: {(snapshot) in
+            
+          let value = snapshot.value as! NSDictionary
+          let permits = (value["permits"] as! NSArray)
+          self.filterList(permit: (permits[0] as! String))
+            
+        }) { (error) in
+            print(error.localizedDescription)
+        }
         
     }
     
@@ -211,4 +257,62 @@ extension LocationTableController{
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error){
         print("error:: (error)")
     }
+    
+    func filterList(permit: String) {
+        
+        if (permit == "All") {
+            ref.child("lots").observe(DataEventType.value, with: { snapshot in
+                self.lotList = []
+                if let snapshots = snapshot.children.allObjects as? [DataSnapshot] {
+                    print("enters if")
+                    for snap in snapshots {
+                        if let postDictionary = snap.value as? Dictionary<String, AnyObject> {
+                            print("enters second if")
+                            let key = snap.key
+                            let lotData = lotDict(key: key, dictionary: postDictionary)
+                            print("fire loop running")
+                            self.lotList.append(lotData)
+                            
+                        }
+                    }
+                    for lot in self.lotList{
+                        let coord = CLLocationCoordinate2D(latitude: lot.latitude, longitude: lot.longitude)
+                        self.getDriveTime(driveDestination: coord, lot: lot)
+                    }
+                }
+                
+            })
+            print("Done!")
+            
+        } else {
+            ref.child("lots").observe(DataEventType.value, with: { snapshot in
+                self.lotList = []
+                if let snapshots = snapshot.children.allObjects as? [DataSnapshot] {
+                    print("enters if")
+                    for snap in snapshots {
+                        if let postDictionary = snap.value as? Dictionary<String, AnyObject> {
+                            print("enters second if")
+                            print(postDictionary["permit_type"] as! String)
+                            print(permit)
+                            if ((postDictionary["permit_type"] as! String) == permit) {
+                                let key = snap.key
+                                let lotData = lotDict(key: key, dictionary: postDictionary)
+                                print("fire loop running")
+                                self.lotList.append(lotData)
+                            }
+                        }
+                    }
+                    print("Loop ended")
+                    for lot in self.lotList{
+                        let coord = CLLocationCoordinate2D(latitude: lot.latitude, longitude: lot.longitude)
+                        self.getDriveTime(driveDestination: coord, lot: lot)
+                    }
+                }
+                
+            })
+        }
+        sortedList.removeAll()
+        tableView.reloadData()
+    }
+    
 }

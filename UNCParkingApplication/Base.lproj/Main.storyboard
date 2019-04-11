@@ -619,9 +619,19 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="UNC Transportation" id="av4-we-Vdi">
-                        <barButtonItem key="rightBarButtonItem" title="Filter" id="QdY-Oh-Q2f"/>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="Ptx-Fh-lLy">
+                            <textField key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Filter Lots" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" id="U4G-cs-YOC">
+                                <rect key="frame" x="270" y="7" width="89" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" name="Carolina Blue"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="filterField" destination="U4G-cs-YOC" id="2Lh-NY-BOb"/>
                         <outlet property="table" destination="Eom-ZK-Ox1" id="YgI-Pe-hNL"/>
                     </connections>
                 </tableViewController>
