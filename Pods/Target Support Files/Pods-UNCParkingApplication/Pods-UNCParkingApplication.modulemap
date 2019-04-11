@@ -1,0 +1,6 @@
+framework module Pods_UNCParkingApplication {
+  umbrella header "Pods-UNCParkingApplication-umbrella.h"
+
+  export *
+  module * { export * }
+}
