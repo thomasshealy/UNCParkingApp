@@ -24,6 +24,7 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
     let locationMgr = CLLocationManager()
     var tempPin: Pin!
     var tempPin1: Pin!
+    var pinImage = UIImage(named: "72pxIcon_Map_Blue")
     
     var ref: DatabaseReference!
     var lotList =  [lotDict]()
@@ -33,15 +34,19 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         super.viewDidLoad()
         
         ref = Database.database().reference()
+        
+        mapView.delegate = self
+        let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+        let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 35.9063109, longitude: -79.0465444), span: span)
+        
+        self.mapView.setRegion(region, animated: true)
 
         self.locationMgr.delegate = self
         self.locationMgr.requestWhenInUseAuthorization()
         self.locationMgr.desiredAccuracy = kCLLocationAccuracyBest
         self.locationMgr.requestLocation()
         
-        mapView.delegate = self
-        
-        
+        pinImage = pinImage?.resizedImage(newSize: CGSize(width: 25, height: 25))
         tempPin = Pin(latitude: 35.903269, longitude: -79.041565, username: "Some Username", title: "UNC Hospital Lot", description: "Available after 5pm", link: "Some link")
         tempPin1 = Pin(latitude: 35.912840, longitude: -79.047110, username: "Some Username", title: "Cobb Parking Deck", description: "Available with student parking pass", link: "Some link")
         //Do some kind of iteration here where you loop through all of the coordinates and call translateCoords
@@ -87,15 +92,24 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
             return nil
         }
         let identifier = "pin"
-        var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKPinAnnotationView
-        pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-        pinView?.pinTintColor = UIColor(red: 0.6, green: 0.729, blue: 0.867, alpha: 1.0)
-        pinView?.canShowCallout = true
-        let smallSquare = CGSize(width: 60, height: 60)
-        let button = UIButton(frame: CGRect(origin: CGPoint.zero, size: smallSquare))
-        button.setBackgroundImage(UIImage(named: "Car"), for: UIControl.State())
-        pinView?.leftCalloutAccessoryView = button
+        var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+        if pinView == nil{
+             pinView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            pinView?.canShowCallout = true
+            let smallSquare = CGSize(width: 60, height: 60)
+            let button = UIButton(frame: CGRect(origin: CGPoint.zero, size: smallSquare))
+            button.setBackgroundImage(UIImage(named: "Car"), for: UIControl.State())
+            pinView?.leftCalloutAccessoryView = button
+             //pinView?.pinTintColor = UIColor(red: 0.6, green: 0.729, blue: 0.867, alpha: 1.0)
+        }
         
+        else{
+            pinView?.annotation = annotation
+        }
+        
+       
+        pinView?.image = pinImage
+
         return pinView
     }
     
@@ -149,4 +163,6 @@ extension FirstViewController{
         print("error:: (error)")
     }
 }
+
+
 

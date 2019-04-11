@@ -16,7 +16,7 @@ class TabBarController: UITabBarController {
         var map = UIImage(named: "48pxIcon_Location_White")
         map = map?.resizedImage(newSize: scaleFactor)
         
-        var locations = UIImage(named: "48pxIcon_Car_White")
+        var locations = UIImage(named: "48pxIcon_Map_White")
         locations = locations?.resizedImage(newSize: scaleFactor)
         
         var profile = UIImage(named: "48pxIcon_Profile_White")
