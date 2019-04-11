@@ -97,6 +97,8 @@ class ProfileController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.nameField.isUserInteractionEnabled = false
+        
         // Set up picker views
         let permitPicker = UIPickerView()
         permitPicker.tag = PickerTag.PermitPicker.rawValue

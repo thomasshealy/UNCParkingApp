@@ -13,11 +13,35 @@ import MapKit
 import Firebase
 
 
-class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
+class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    @IBOutlet weak var filterField: UITextField!
+    
+    var permitPickerData: [String] = []
+    var permitList = [PermitDict]()
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return permitPickerData.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return permitPickerData[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
+        filterMap(permit: permitPickerData[row])
+        
+        self.view.endEditing(true)
+    }
 
     @IBOutlet weak var mapView: MKMapView!
     
-    //dgallub1@live.unc.edu
+    //anemail@gmail.com
     //pw: testtest
     
     var pinList = [DictPin]()
@@ -33,7 +57,42 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let permitPicker = UIPickerView()
+        permitPicker.delegate = self
+        
+        filterField.inputView = permitPicker
+        
         ref = Database.database().reference()
+        
+        ref.child("permits").observe(DataEventType.value, with: {(snapshot) in
+            self.permitList = []
+            if let snapshots = snapshot.children.allObjects as? [DataSnapshot] {
+                print("enters if")
+                for snap in snapshots {
+                    if let permitDictionary = snap.value as? Dictionary<String, AnyObject> {
+                        print("enters second if")
+                        let key = snap.key
+                        let permitData = PermitDict(key: key, dictionary: permitDictionary)
+                        print("fire loop running")
+                        self.permitList.append(permitData)
+                        
+                    }
+                }
+                var tempData: [String] = []
+                for permit in self.permitList {
+                    tempData.append(permit.permit_type)
+                }
+                tempData = [String](Set(tempData))
+                tempData.sort()
+                self.permitPickerData.append("All")
+                for x in tempData {
+                    self.permitPickerData.append(x)
+                }
+                
+                
+            }
+            
+        })
         
         mapView.delegate = self
         let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
@@ -51,24 +110,15 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         tempPin1 = Pin(latitude: 35.912840, longitude: -79.047110, username: "Some Username", title: "Cobb Parking Deck", description: "Available with student parking pass", link: "Some link")
         //Do some kind of iteration here where you loop through all of the coordinates and call translateCoords
         
-        ref.child("lots").observe(DataEventType.value, with: { snapshot in
-            self.lotList = []
-            if let snapshots = snapshot.children.allObjects as? [DataSnapshot] {
-                print("enters if")
-                for snap in snapshots {
-                    if let postDictionary = snap.value as? Dictionary<String, AnyObject> {
-                        print("enters second if")
-                        let key = snap.key
-                        let lotData = lotDict(key: key, dictionary: postDictionary)
-                        print("fire loop running")
-                        self.lotList.append(lotData)
-                        
-                    }
-                }
-                self.addLots()
-            }
+        ref.child("users").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value, with: {(snapshot) in
             
-        })
+            let value = snapshot.value as! NSDictionary
+            let permits = (value["permits"] as! NSArray)
+            self.filterMap(permit: (permits[0] as! String))
+            
+        }) { (error) in
+            print(error.localizedDescription)
+        }
         
     }
     
@@ -138,7 +188,60 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         
     }
     
-
+    func filterMap(permit: String) {
+        
+        let annotations = self.mapView.annotations
+        for an in annotations {
+            self.mapView.removeAnnotation(an)
+        }
+        
+        if (permit == "All") {
+            ref.child("lots").observe(DataEventType.value, with: { snapshot in
+                self.lotList = []
+                if let snapshots = snapshot.children.allObjects as? [DataSnapshot] {
+                    print("enters if")
+                    for snap in snapshots {
+                        if let postDictionary = snap.value as? Dictionary<String, AnyObject> {
+                            print("enters second if")
+                            let key = snap.key
+                            let lotData = lotDict(key: key, dictionary: postDictionary)
+                            print("fire loop running")
+                            self.lotList.append(lotData)
+                            
+                        }
+                    }
+                    self.addLots()
+                }
+                
+            })
+            
+        } else {
+            ref.child("lots").observe(DataEventType.value, with: { snapshot in
+                self.lotList = []
+                if let snapshots = snapshot.children.allObjects as? [DataSnapshot] {
+                    print("enters if")
+                    for snap in snapshots {
+                        if let postDictionary = snap.value as? Dictionary<String, AnyObject> {
+                            print("enters second if")
+                            print(postDictionary["permit_type"] as! String)
+                            print(permit)
+                            if ((postDictionary["permit_type"] as! String) == permit) {
+                                let key = snap.key
+                                let lotData = lotDict(key: key, dictionary: postDictionary)
+                                print("fire loop running")
+                                self.lotList.append(lotData)
+                            }
+                        }
+                    }
+                    print("Loop ended")
+                    self.addLots()
+                }
+                
+            })
+        }
+    }
+    
+    
 
 }
 
