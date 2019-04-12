@@ -401,17 +401,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Fo5-9h-M2m">
-                                <rect key="frame" x="16" y="20" width="343" height="172"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <string key="text">This application was developed by four UNC senior computer science students in collaboration with the Department of Public Safety. For more information, call (919)-962-8100 or consult the following links:</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YKk-e5-T91">
-                                <rect key="frame" x="16" y="200" width="343" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YKk-e5-T91">
+                                <rect key="frame" x="60" y="250" width="250" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" name="Carolina Blue"/>
-                                <state key="normal" title="UNC Parking Homepage">
+                                <state key="normal" title="View Pricing Information">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -420,13 +414,14 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="moreInfoButtonPressed:" destination="Ij7-hW-fa7" eventType="touchUpInside" id="yMT-vR-5nZ"/>
+                                    <action selector="buttonFivePressed:" destination="Ij7-hW-fa7" eventType="touchUpInside" id="F3E-rN-H4p"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FkF-IQ-cDf">
-                                <rect key="frame" x="16" y="253.5" width="343" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FkF-IQ-cDf">
+                                <rect key="frame" x="60" y="300" width="250" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" name="Carolina Blue"/>
-                                <state key="normal" title="Employee Parking">
+                                <state key="normal" title="Park at a UNC Event">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -435,13 +430,14 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="employeeButtonPressed:" destination="Ij7-hW-fa7" eventType="touchUpInside" id="YrM-mh-Ipy"/>
+                                    <action selector="buttonSixPressed:" destination="Ij7-hW-fa7" eventType="touchUpInside" id="wHx-QD-j8f"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WPn-RT-YrF">
-                                <rect key="frame" x="16" y="356.5" width="343" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WPn-RT-YrF">
+                                <rect key="frame" x="60" y="400" width="250" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" name="Carolina Blue"/>
-                                <state key="normal" title="Visitor And Patient Parking">
+                                <state key="normal" title="Get Parkmobile">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -450,13 +446,14 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="visitorButtonPressed:" destination="Ij7-hW-fa7" eventType="touchUpInside" id="Jgs-vL-iW4"/>
+                                    <action selector="buttonEightPressed:" destination="Ij7-hW-fa7" eventType="touchUpInside" id="zdC-t9-LTU"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wBq-up-9Vh">
-                                <rect key="frame" x="16" y="408" width="343" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wBq-up-9Vh">
+                                <rect key="frame" x="60" y="450" width="250" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" name="Carolina Blue"/>
-                                <state key="normal" title="Digital Meter Pay Stations">
+                                <state key="normal" title="Other (Main Website)">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -465,17 +462,60 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="meterButtonPressed:" destination="Ij7-hW-fa7" eventType="touchUpInside" id="uV8-VY-yBd"/>
+                                    <action selector="buttonNinePressed:" destination="Ij7-hW-fa7" eventType="touchUpInside" id="VDc-0e-7Lc"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EOx-zS-ow0">
-                                <rect key="frame" x="0.0" y="463.5" width="375" height="139.5"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sSb-yG-ZYk">
-                                <rect key="frame" x="16" y="305" width="343" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iCV-d3-DOn">
+                                <rect key="frame" x="60" y="200" width="250" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" name="Carolina Blue"/>
-                                <state key="normal" title="Student Parking">
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="Commuter Alternative Program">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonFourPressed:" destination="Ij7-hW-fa7" eventType="touchUpInside" id="9gY-bC-SDV"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zEP-wq-9OL">
+                                <rect key="frame" x="60" y="150" width="250" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" name="Carolina Blue"/>
+                                <state key="normal" title="Learn about Parking">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonThreePressed:" destination="Ij7-hW-fa7" eventType="touchUpInside" id="zcy-cG-rzp"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wkh-xz-q4q">
+                                <rect key="frame" x="60" y="100" width="250" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" name="Carolina Blue"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="Park and Ride/Transit Services">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonTwoPressed:" destination="Ij7-hW-fa7" eventType="touchUpInside" id="e8s-hr-San"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dLg-59-Jkc">
+                                <rect key="frame" x="60" y="50" width="250" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" name="Carolina Blue"/>
+                                <state key="normal" title="Appeal/Pay a Citation">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonOnePressed:" destination="Ij7-hW-fa7" eventType="touchUpInside" id="uhU-sa-E7h"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sSb-yG-ZYk">
+                                <rect key="frame" x="60" y="350" width="250" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" name="Carolina Blue"/>
+                                <state key="normal" title="Get TransLoc Rider">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -484,36 +524,11 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="studentButtonPressed:" destination="Ij7-hW-fa7" eventType="touchUpInside" id="RG9-1i-dtP"/>
+                                    <action selector="buttonSevenPressed:" destination="Ij7-hW-fa7" eventType="touchUpInside" id="Ibo-XZ-qc8"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="wBq-up-9Vh" firstAttribute="top" secondItem="WPn-RT-YrF" secondAttribute="bottom" constant="21.5" id="4jb-ln-E6N"/>
-                            <constraint firstItem="Fo5-9h-M2m" firstAttribute="leading" secondItem="YKk-e5-T91" secondAttribute="leading" id="5Qw-6o-8Ap"/>
-                            <constraint firstItem="FkF-IQ-cDf" firstAttribute="leading" secondItem="sSb-yG-ZYk" secondAttribute="leading" id="8RM-nY-rri"/>
-                            <constraint firstItem="YKk-e5-T91" firstAttribute="top" secondItem="Fo5-9h-M2m" secondAttribute="bottom" constant="8" id="C4g-Fj-OYd"/>
-                            <constraint firstItem="Fo5-9h-M2m" firstAttribute="leading" secondItem="T9f-EE-MOU" secondAttribute="leadingMargin" id="D7j-Mz-dhH"/>
-                            <constraint firstAttribute="bottom" secondItem="EOx-zS-ow0" secondAttribute="bottom" id="FHa-p6-a36"/>
-                            <constraint firstItem="Fo5-9h-M2m" firstAttribute="trailing" secondItem="YKk-e5-T91" secondAttribute="trailing" id="IOy-At-ywH"/>
-                            <constraint firstItem="YKk-e5-T91" firstAttribute="leading" secondItem="FkF-IQ-cDf" secondAttribute="leading" id="KUl-gb-iqD"/>
-                            <constraint firstItem="FkF-IQ-cDf" firstAttribute="trailing" secondItem="sSb-yG-ZYk" secondAttribute="trailing" id="TE1-pa-HZl"/>
-                            <constraint firstItem="WPn-RT-YrF" firstAttribute="leading" secondItem="wBq-up-9Vh" secondAttribute="leading" id="Tpz-lF-1mk"/>
-                            <constraint firstItem="sSb-yG-ZYk" firstAttribute="leading" secondItem="WPn-RT-YrF" secondAttribute="leading" id="VVL-VT-q8V"/>
-                            <constraint firstItem="WPn-RT-YrF" firstAttribute="trailing" secondItem="wBq-up-9Vh" secondAttribute="trailing" id="XGo-xy-IYU"/>
-                            <constraint firstItem="EOx-zS-ow0" firstAttribute="leading" secondItem="T9f-EE-MOU" secondAttribute="leading" id="ZJF-y1-zev"/>
-                            <constraint firstItem="sSb-yG-ZYk" firstAttribute="centerY" secondItem="T9f-EE-MOU" secondAttribute="centerY" constant="18.5" id="afs-gC-drk"/>
-                            <constraint firstItem="sSb-yG-ZYk" firstAttribute="trailing" secondItem="WPn-RT-YrF" secondAttribute="trailing" id="eHp-H7-eDP"/>
-                            <constraint firstItem="wBq-up-9Vh" firstAttribute="centerX" secondItem="EOx-zS-ow0" secondAttribute="centerX" id="i4Y-gL-Gu1"/>
-                            <constraint firstItem="EOx-zS-ow0" firstAttribute="top" secondItem="wBq-up-9Vh" secondAttribute="bottom" constant="25.5" id="iuR-ox-Us8"/>
-                            <constraint firstItem="WPn-RT-YrF" firstAttribute="top" secondItem="sSb-yG-ZYk" secondAttribute="bottom" constant="21.5" id="ke9-w8-4Az"/>
-                            <constraint firstAttribute="trailing" secondItem="EOx-zS-ow0" secondAttribute="trailing" id="lZx-eR-kpi"/>
-                            <constraint firstItem="sSb-yG-ZYk" firstAttribute="top" secondItem="FkF-IQ-cDf" secondAttribute="bottom" constant="21.5" id="rNp-ew-RY2"/>
-                            <constraint firstItem="YKk-e5-T91" firstAttribute="trailing" secondItem="FkF-IQ-cDf" secondAttribute="trailing" id="snc-5Z-h5r"/>
-                            <constraint firstItem="FkF-IQ-cDf" firstAttribute="top" secondItem="YKk-e5-T91" secondAttribute="bottom" constant="23.5" id="vTU-LF-nM2"/>
-                            <constraint firstItem="Fo5-9h-M2m" firstAttribute="top" secondItem="T9f-EE-MOU" secondAttribute="top" constant="20" symbolic="YES" id="ysm-4d-p06"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="aIr-Px-Ksl"/>
                     </view>
                     <navigationItem key="navigationItem" title="More Info" id="8d0-p4-V5q"/>
