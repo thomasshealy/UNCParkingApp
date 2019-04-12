@@ -187,8 +187,7 @@ class RegisterController: UIViewController, UITextFieldDelegate, UIPickerViewDel
                         "lastName": self.lastName.text as AnyObject,
                         "email": self.emailAddress.text as AnyObject,
                         "type": "None" as AnyObject,
-                        "permits": [self.passField.text] as AnyObject,
-                        "push_notifications": true as AnyObject
+                        "permits": [self.passField.text] as AnyObject
                     ]
                     let userID = Auth.auth().currentUser!.uid
                     self.ref.child("users").child(userID).setValue(userDict)

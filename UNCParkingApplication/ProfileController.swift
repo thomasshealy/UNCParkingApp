@@ -114,12 +114,6 @@ class ProfileController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         typeField.inputView = typePicker
         pushNotificationField.inputView = pushNotificationPicker
         
-        
-        
-        
-        
-        
-        
         ref = Database.database().reference()
         ref.child("users").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value, with: {(snapshot) in
             let value = snapshot.value as! NSDictionary
@@ -168,7 +162,6 @@ class ProfileController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         let type = typeField.text
         let permits = [permitField.text]
         let push_notifications = (pushNotificationField.text == "Yes") ? true : false
-        
         let updates = [
             "firstName" : firstName,
             "lastName" : lastName,

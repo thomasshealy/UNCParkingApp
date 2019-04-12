@@ -35,9 +35,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
         application.registerForRemoteNotifications()
         FirebaseApp.configure()
         registerForPushNotifications()
-        registerUserProperty(property: ["YODOG"])
-        //Analytics.resetAnalyticsData()
+        //getPermit()
         return true
+    }
+    func getPermit(){
+        
+        let ref = Database.database().reference()
+        ref.child("users").child(Auth.auth().currentUser!.uid).child("permits").observeSingleEvent(of: .value, with: { (snapshot) in
+            if let permits = snapshot.value as? [String] {
+                print("Snap val: ", permits[0])
+                self.registerUserProperty(property: permits)
+            }
+            else{
+                print("Firebase read failed")
+            }
+        })
     }
     
     func registerForPushNotifications() {

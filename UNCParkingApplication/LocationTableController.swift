@@ -101,7 +101,7 @@ class LocationTableController: UITableViewController, CLLocationManagerDelegate,
                 
                 
                //self.sortLots()
-                for lot in self.lotList{
+              /*  for lot in self.lotList{
                     //let coord = CLLocationCoordinate2D(latitude: lot.latitude, longitude: lot.longitude)
                     self.calculateDistance(toMeasure: lot)
                     //self.getDriveTime(driveDestination: coord, lot: lot)
@@ -110,6 +110,7 @@ class LocationTableController: UITableViewController, CLLocationManagerDelegate,
                     let coord = CLLocationCoordinate2D(latitude: lot.latitude, longitude: lot.longitude)
                     self.getDriveTime(driveDestination: coord, lot: lot)
                 }
+ */
             }
             
         })
@@ -273,6 +274,26 @@ class LocationTableController: UITableViewController, CLLocationManagerDelegate,
             }
         }
     }
+    
+    func initiateCalculations(){
+        for lot in lotList{
+            //let coord = CLLocationCoordinate2D(latitude: lot.latitude, longitude: lot.longitude)
+            calculateDistance(toMeasure: lot)
+            //self.getDriveTime(driveDestination: coord, lot: lot)
+        }
+        if sortedDistanceList.count > 10{
+        for lot in sortedDistanceList.prefix(through: 10){
+            let coord = CLLocationCoordinate2D(latitude: lot.latitude, longitude: lot.longitude)
+            getDriveTime(driveDestination: coord, lot: lot)
+        }
+        }
+        else{
+            for lot in sortedDistanceList{
+                let coord = CLLocationCoordinate2D(latitude: lot.latitude, longitude: lot.longitude)
+            getDriveTime(driveDestination: coord, lot: lot)
+            }
+        }
+    }
 
 }
 
@@ -298,7 +319,7 @@ extension LocationTableController{
     
     func filterList(permit: String) {
         
-        if (permit == "All") {
+        if (permit == "All" || permit == "None") {
             ref.child("lots").observe(DataEventType.value, with: { snapshot in
                 self.lotList = []
                 if let snapshots = snapshot.children.allObjects as? [DataSnapshot] {
@@ -313,10 +334,7 @@ extension LocationTableController{
                             
                         }
                     }
-                    for lot in self.lotList{
-                        let coord = CLLocationCoordinate2D(latitude: lot.latitude, longitude: lot.longitude)
-                        self.getDriveTime(driveDestination: coord, lot: lot)
-                    }
+                    self.initiateCalculations()
                 }
                 
             })
@@ -341,15 +359,15 @@ extension LocationTableController{
                         }
                     }
                     print("Loop ended")
-                    for lot in self.lotList{
-                        let coord = CLLocationCoordinate2D(latitude: lot.latitude, longitude: lot.longitude)
-                        self.getDriveTime(driveDestination: coord, lot: lot)
-                    }
+                    
+                    self.initiateCalculations()
+ 
                 }
                 
             })
         }
         sortedList.removeAll()
+        sortedDistanceList.removeAll()
         tableView.reloadData()
     }
     

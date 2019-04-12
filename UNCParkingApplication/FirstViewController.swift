@@ -195,7 +195,7 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
             self.mapView.removeAnnotation(an)
         }
         
-        if (permit == "All") {
+        if (permit == "All" || permit == "None") {
             ref.child("lots").observe(DataEventType.value, with: { snapshot in
                 self.lotList = []
                 if let snapshots = snapshot.children.allObjects as? [DataSnapshot] {
