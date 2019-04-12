@@ -14,6 +14,7 @@ import UserNotifications
 class AppDelegate: UIResponder, UIApplicationDelegate{
 
     var window: UIWindow?
+    var ref: DatabaseReference!
     let gcmMessageIDKey = "gcm.message_id"
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -38,19 +39,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
         //getPermit()
         return true
     }
-    func getPermit(){
-        
-        let ref = Database.database().reference()
-        ref.child("users").child(Auth.auth().currentUser!.uid).child("permits").observeSingleEvent(of: .value, with: { (snapshot) in
-            if let permits = snapshot.value as? [String] {
-                print("Snap val: ", permits[0])
-                self.registerUserProperty(property: permits)
-            }
-            else{
-                print("Firebase read failed")
-            }
-        })
-    }
     
     func registerForPushNotifications() {
         UNUserNotificationCenter.current() // 1
@@ -61,14 +49,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
                 guard granted else { return }
                 self?.getNotificationSettings()
         }
-    }
-    
-    func registerUserProperty(property: [String]){
-        
-        Analytics.setUserProperty(property[0], forName: "Parking_Passes")
-        
-        print("Register User Called: ", property[0])
-        
     }
     
     func getNotificationSettings() {

@@ -64,6 +64,8 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         
         ref = Database.database().reference()
         
+        getPermit()
+        
         ref.child("permits").observe(DataEventType.value, with: {(snapshot) in
             self.permitList = []
             if let snapshots = snapshot.children.allObjects as? [DataSnapshot] {
@@ -264,6 +266,19 @@ extension FirstViewController{
     }
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error){
         print("error:: (error)")
+    }
+    func getPermit(){
+        
+        ref = Database.database().reference()
+        ref.child("users").child(Auth.auth().currentUser!.uid).child("permits").observeSingleEvent(of: .value, with: { (snapshot) in
+            if let permits = snapshot.value as? [String] {
+                print("Snap val: ", permits[0])
+                self.registerUserProperty(property: permits)
+            }
+            else{
+                print("Firebase read failed")
+            }
+        })
     }
 }
 
