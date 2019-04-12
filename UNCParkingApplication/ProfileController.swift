@@ -23,7 +23,6 @@ class ProfileController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     enum PickerTag: Int {
         case PermitPicker
         case TypePicker
-        case PushNotificationPicker
     }
     
     
@@ -38,8 +37,6 @@ class ProfileController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
                 return permitPickerData.count
             case .TypePicker:
                 return typePickerData.count
-            case .PushNotificationPicker:
-                return pushNotificationPickerData.count
             }
         } else {
             print("Error!")
@@ -54,8 +51,6 @@ class ProfileController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
                 return permitPickerData[row]
             case .TypePicker:
                 return typePickerData[row]
-            case .PushNotificationPicker:
-                return pushNotificationPickerData[row]
             }
         } else {
             print("Error!")
@@ -70,8 +65,6 @@ class ProfileController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
                 permitField.text = permitPickerData[row]
             case .TypePicker:
                 typeField.text = typePickerData[row]
-            case .PushNotificationPicker:
-                pushNotificationField.text = pushNotificationPickerData[row]
             }
             self.view.endEditing(true)
         } else {
@@ -83,7 +76,6 @@ class ProfileController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var typeField: UITextField!
     @IBOutlet weak var permitField: UITextField!
-    @IBOutlet weak var pushNotificationField: UITextField!
     
     /*
      let userID = Auth.auth().currentUser!.uid
@@ -106,13 +98,9 @@ class ProfileController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         let typePicker = UIPickerView()
         typePicker.tag = PickerTag.TypePicker.rawValue
         typePicker.delegate = self
-        let pushNotificationPicker = UIPickerView()
-        pushNotificationPicker.tag = PickerTag.PushNotificationPicker.rawValue
-        pushNotificationPicker.delegate = self
         
         permitField.inputView = permitPicker
         typeField.inputView = typePicker
-        pushNotificationField.inputView = pushNotificationPicker
         
         ref = Database.database().reference()
         ref.child("users").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value, with: {(snapshot) in
@@ -121,12 +109,6 @@ class ProfileController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
             self.typeField.text = (value["type"] as! String)
             let permits = (value["permits"] as! NSArray)
             self.permitField.text = (permits[0] as! String)
-            let push_notifications = (value["push_notifications"] as! Bool)
-            if (push_notifications) {
-                self.pushNotificationField.text = "Yes"
-            } else {
-                self.pushNotificationField.text = "No"
-            }
             
         }) { (error) in
             print(error.localizedDescription)
@@ -142,7 +124,6 @@ class ProfileController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
                         let permitData = PermitDict(key: key, dictionary: permitDictionary)
                         print("fire loop running")
                         self.permitList.append(permitData)
-                        
                     }
                 }
                 for permit in self.permitList {
@@ -161,13 +142,11 @@ class ProfileController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         let lastName = name![1]
         let type = typeField.text
         let permits = [permitField.text]
-        let push_notifications = (pushNotificationField.text == "Yes") ? true : false
         let updates = [
             "firstName" : firstName,
             "lastName" : lastName,
             "permits" : permits,
-            "type" : type,
-            "push_notifications" : push_notifications
+            "type" : type
             ] as [String : Any]
         
         ref = Database.database().reference()
@@ -204,4 +183,9 @@ class ProfileController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         self.present(alertController, animated: true, completion: nil)
     }
     
+    @IBAction func editInSettingsButtonPressed(_ sender: Any) {
+        if let url = NSURL(string: UIApplication.openSettingsURLString) as URL? {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
+    }
 }
