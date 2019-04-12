@@ -62,12 +62,11 @@ framework](https://firebase.google.com/docs/ios/setup) to your project.
 The READMEs for components of FirebaseUI can be found in their respective
 project folders.
 
-- [Auth](FirebaseAuthUI/README.md)
-- [Firestore](FirebaseFirestoreUI/README.md)
-- [PhoneAuth](FirebasePhoneAuthUI/README.md)
-- [Database](FirebaseDatabaseUI/README.md)
-- [Firestore](FirebaseFirestoreUI/README.md)
-- [Storage](FirebaseStorageUI/README.md)
+- [Auth](Auth/README.md)
+- [PhoneAuth](PhoneAuth/README.md)
+- [Database](Database/README.md)
+- [Firestore](Firestore/README.md)
+- [Storage](Storage/README.md)
 
 ## Local Setup
 
@@ -95,9 +94,8 @@ Go to `Project Settings -> Info tab -> Url Types` and update values for:
 	+ `fb{your-app-id}` (put Facebook App Id)
 	+ `twitterkit-{consumer-key}` (put Twitter App Consumer key)
 
-1. Update `Info.plist` with Twitter and Tacebook configuration values
+1. Update `Info.plist` with Facebook configuration values
 	+ `FacebookAppID -> {your-app-id}` (put Facebook App Id)
-	+ `Fabric -> Kits -> KitInfo -> consumerKey / consumerSecret` (put Twitter App consumer key/secret). Please note that's it's not secure to store the `consumerSecret` in the app itself.
 
 1. Enable Keychain Sharing.<br>
 Facebook SDK requires keychain sharing.<br>
