@@ -46,6 +46,10 @@ class MoreInfoController: UIViewController {
         UIApplication.shared.open(URL(string: "https://parkmobile.app.link/SYLSYDYShR")! as URL, options: [:], completionHandler: nil)
     }
     
+    @IBAction func weeknightPressed(_ sender: Any) {
+         UIApplication.shared.open(URL(string: "https://move.unc.edu/weeknight-parking/")! as URL, options: [:], completionHandler: nil)
+    }
+    
     @IBAction func buttonNinePressed(_ sender: Any) {
         UIApplication.shared.open(URL(string: "https://move.unc.edu/")! as URL, options: [:], completionHandler: nil)
     }

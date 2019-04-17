@@ -66,6 +66,8 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         
         getPermit()
         
+        showAlert()
+        
         ref.child("permits").observe(DataEventType.value, with: {(snapshot) in
             self.permitList = []
             if let snapshots = snapshot.children.allObjects as? [DataSnapshot] {
@@ -189,6 +191,53 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         print("Register User Called: ", property[0])
         
     }
+    
+    func showAlert(){
+        if let alertChoice = UserDefaults.standard.object(forKey: "alert"){
+            //do nothing
+        }
+        else{
+            let alertText = "Weeknight Parking Hours are Monday - Thursday, 5 p.m. - 7:30 a.m. for more information please see the More Info page of this app. "
+            let alertController = UIAlertController(title: "Weeknight Parking", message: alertText, preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+                alertController.dismiss(animated: true, completion: nil)
+            }))
+            alertController.addAction(UIAlertAction(title: "Don't Show Again", style: .default, handler: { (action: UIAlertAction!) in
+                UserDefaults.standard.set("no", forKey: "alert")
+                alertController.dismiss(animated: true, completion: nil)
+            }))
+            self.present(alertController, animated: true, completion: nil)
+        }
+    }
+    
+    @IBAction func weeknightPressed(_ sender: Any) {
+        
+        let annotations = self.mapView.annotations
+        for an in annotations {
+           self.mapView.removeAnnotation(an)
+        }
+        
+        ref.child("weeknight").observe(DataEventType.value, with: { snapshot in
+            self.lotList = []
+            if let snapshots = snapshot.children.allObjects as? [DataSnapshot] {
+                print("enters if")
+                for snap in snapshots {
+                    if let postDictionary = snap.value as? Dictionary<String, AnyObject> {
+                        print("enters second if")
+                        let key = snap.key
+                        let lotData = lotDict(key: key, dictionary: postDictionary)
+                        print("fire loop running")
+                        self.lotList.append(lotData)
+                        
+                    }
+                }
+                self.addLots()
+            }
+            
+        })
+        
+    }
+    
     
     func filterMap(permit: String) {
         

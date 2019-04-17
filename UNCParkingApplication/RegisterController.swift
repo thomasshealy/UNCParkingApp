@@ -74,7 +74,7 @@ class RegisterController: UIViewController, UITextFieldDelegate, UIPickerViewDel
                 }
                 tempData = [String](Set(tempData))
                 tempData.sort()
-                self.permitPickerData.append("None")
+                self.permitPickerData.append("Visitor/No Permit")
                 for x in tempData {
                     self.permitPickerData.append(x)
                 }
