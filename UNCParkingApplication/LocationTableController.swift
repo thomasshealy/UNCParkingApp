@@ -95,7 +95,9 @@ class LocationTableController: UITableViewController, CLLocationManagerDelegate,
                 tempData = [String](Set(tempData))
                 tempData.sort()
                 self.permitPickerData.append("Weeknight Parking")
+                self.permitPickerData.append("Weekday Parking")
                 self.permitPickerData.append("All")
+                
                 for x in tempData {
                     self.permitPickerData.append(x)
                 }
@@ -341,6 +343,30 @@ extension LocationTableController{
             })
             print("Done!")
             
+        }
+        else if permit == "Weekday Parking"{
+            ref.child("weekday").observe(DataEventType.value, with: { snapshot in
+                self.lotList = []
+                if let snapshots = snapshot.children.allObjects as? [DataSnapshot] {
+                    print("enters if")
+                    for snap in snapshots {
+                        if let postDictionary = snap.value as? Dictionary<String, AnyObject> {
+                            print("enters second if")
+                            print(postDictionary["permit_type"] as! String)
+                            print(permit)
+                            let key = snap.key
+                            let lotData = lotDict(key: key, dictionary: postDictionary)
+                            print("fire loop running")
+                            self.lotList.append(lotData)
+                        }
+                    }
+                    print("Loop ended")
+                    
+                    self.initiateCalculations()
+                    
+                }
+                
+            })
         }
         else if permit == "Weeknight Parking"{
             print("Enters weeknight if")

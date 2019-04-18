@@ -43,7 +43,6 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
     
     //anemail@gmail.com
     //pw: testtest
-    
     var pinList = [DictPin]()
     let locationMgr = CLLocationManager()
     var tempPin: Pin!
@@ -60,9 +59,13 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         let permitPicker = UIPickerView()
         permitPicker.delegate = self
         
+        getTime()
+        
         filterField.inputView = permitPicker
         
         ref = Database.database().reference()
+        
+        print("Day of the Week: ", getDayOfWeek()!)
         
         getPermit()
         
@@ -88,6 +91,7 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
                 }
                 tempData = [String](Set(tempData))
                 tempData.sort()
+                self.permitPickerData.append("Weekday")
                 self.permitPickerData.append("All")
                 for x in tempData {
                     self.permitPickerData.append(x)
@@ -238,6 +242,44 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         
     }
     
+    func getDayOfWeek() -> Int?{
+        let date = Date()
+        let format = DateFormatter()
+        format.dateFormat = "yyyy-MM-dd"
+        let calendar = Calendar.current
+        return calendar.component(.weekday, from: date)
+    }
+    
+    func getTime(){
+        let date = Date()
+        let calendar = Calendar.current
+        let hour = calendar.component(.hour, from: date)
+        let minutes = calendar.component(.minute, from: date)
+        print("hour: ", hour)
+        print("minute: ", minutes)
+    }
+    
+    func determineAccess(day: Int, hour: Int, minute: Int) -> String{
+        //Tuesday-Thursday
+        if day >= 3 || day <= 5{
+           
+        }
+        //Sunday or Saturday
+        else if day == 1 || day == 7{
+            
+        }
+        //Monday
+        else if day == 2{
+            
+        }
+        //Friday
+        else{
+            
+        }
+        return "place holder"
+    }
+    
+    
     
     func filterMap(permit: String) {
         
@@ -266,7 +308,28 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
                 
             })
             
-        } else {
+        }
+        else if permit == "Weekday"{
+            ref.child("weekday").observe(DataEventType.value, with: { snapshot in
+                self.lotList = []
+                if let snapshots = snapshot.children.allObjects as? [DataSnapshot] {
+                    print("enters if")
+                    for snap in snapshots {
+                        if let postDictionary = snap.value as? Dictionary<String, AnyObject> {
+                            print("enters second if")
+                            let key = snap.key
+                            let lotData = lotDict(key: key, dictionary: postDictionary)
+                            print("fire loop running")
+                            self.lotList.append(lotData)
+                            
+                        }
+                    }
+                    self.addLots()
+                }
+                
+            })
+        }
+        else {
             ref.child("lots").observe(DataEventType.value, with: { snapshot in
                 self.lotList = []
                 if let snapshots = snapshot.children.allObjects as? [DataSnapshot] {
