@@ -271,7 +271,7 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
             else if hour < 700{
                 weeknightPressed(weeknightButton)
             }
-            //it 7am - 7:59 pm
+            //7am - 7:59 am
             else if hour == 700{
                 //Weeknight still valid, but warn the user time is running out.
                 if minute <= 30{
@@ -288,15 +288,57 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         }
         //Sunday or Saturday
         else if day == 1 || day == 7{
-            
+            filterMap(permit: "All")
         }
         //Monday
         else if day == 2{
-            
+            //5pm - 11pm
+            if hour >= 1700{
+                weeknightPressed(weeknightButton)
+            }
+            //midnight - 6:59 am
+            else if hour < 700{
+                filterMap(permit: "All")
+            }
+            //7am - 7:59 am
+            else if hour == 700{
+                //Weeknight still valid, but warn the user time is running out.
+                if minute <= 30{
+                    filterMap(permit: "All")
+                    warnUser()
+                }
+                else{
+                    filterMap(permit: "Weekday")
+                }
+            }
+            else{
+                filterMap(permit: "Weekday")
+            }
         }
         //Friday
         else{
-            
+            //5pm - 11pm
+            if hour >= 1700{
+                filterMap(permit: "All")
+            }
+            //midnight - 6:59 am
+            else if hour < 700{
+                weeknightPressed(weeknightButton)
+            }
+                //7am - 7:59 am
+            else if hour == 700{
+                //Weeknight still valid, but warn the user time is running out.
+                if minute <= 30{
+                    weeknightPressed(weeknightButton)
+                    warnUser()
+                }
+                else{
+                    filterMap(permit: "Weekday")
+                }
+            }
+            else{
+                filterMap(permit: "Weekday")
+            }
         }
     }
     
