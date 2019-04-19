@@ -66,6 +66,7 @@
                     <connections>
                         <outlet property="filterField" destination="mJj-ck-iCs" id="zIg-rd-CHi"/>
                         <outlet property="mapView" destination="KYg-4b-Pq3" id="CIH-ap-4vP"/>
+                        <outlet property="weeknightButton" destination="CFV-Qx-Kvh" id="vi4-Sb-Ul7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>

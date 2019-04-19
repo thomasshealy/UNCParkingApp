@@ -16,6 +16,7 @@ import Firebase
 class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBOutlet weak var filterField: UITextField!
+    @IBOutlet weak var weeknightButton: UIButton!
     
     var permitPickerData: [String] = []
     var permitList = [PermitDict]()
@@ -259,10 +260,31 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         print("minute: ", minutes)
     }
     
-    func determineAccess(day: Int, hour: Int, minute: Int) -> String{
+    func determineAccess(day: Int, hour: Int, minute: Int){
         //Tuesday-Thursday
         if day >= 3 || day <= 5{
-           
+            //5pm - 11pm
+            if hour >= 1700{
+                weeknightPressed(weeknightButton)
+            }
+            //midnight - 6:59 am
+            else if hour < 700{
+                weeknightPressed(weeknightButton)
+            }
+            //it 7am - 7:59 pm
+            else if hour == 700{
+                //Weeknight still valid, but warn the user time is running out.
+                if minute <= 30{
+                    weeknightPressed(weeknightButton)
+                    warnUser()
+                }
+                else{
+                    filterMap(permit: "Weekday")
+                }
+            }
+            else{
+                filterMap(permit: "Weekday")
+            }
         }
         //Sunday or Saturday
         else if day == 1 || day == 7{
@@ -276,10 +298,16 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         else{
             
         }
-        return "place holder"
     }
     
-    
+    func warnUser(){
+        let alertText = "Weeknight Parking Hours are Monday - Thursday, 5 p.m. - 7:30 a.m. for more information please see the More Info page of this app. "
+        let alertController = UIAlertController(title: "Warning", message: alertText, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+            alertController.dismiss(animated: true, completion: nil)
+        }))
+        self.present(alertController, animated: true, completion: nil)
+    }
     
     func filterMap(permit: String) {
         
