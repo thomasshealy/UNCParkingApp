@@ -60,8 +60,6 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         let permitPicker = UIPickerView()
         permitPicker.delegate = self
         
-        getTime()
-        
         filterField.inputView = permitPicker
         
         ref = Database.database().reference()
@@ -92,8 +90,9 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
                 }
                 tempData = [String](Set(tempData))
                 tempData.sort()
-                self.permitPickerData.append("Weekday")
                 self.permitPickerData.append("All")
+                self.permitPickerData.append("Available Now (Without Permit)")
+                self.permitPickerData.append("Weekday")
                 for x in tempData {
                     self.permitPickerData.append(x)
                 }
@@ -123,7 +122,12 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
             
             let value = snapshot.value as! NSDictionary
             let permits = (value["permits"] as! NSArray)
+            if permits[0] as! String == "Visitor/No Permit"{
+                self.getAccessData()
+            }
+            else{
             self.filterMap(permit: (permits[0] as! String))
+            }
             
         }) { (error) in
             print(error.localizedDescription)
@@ -251,13 +255,13 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         return calendar.component(.weekday, from: date)
     }
     
-    func getTime(){
+    func getAccessData(){
         let date = Date()
         let calendar = Calendar.current
+        let day = getDayOfWeek()
         let hour = calendar.component(.hour, from: date)
         let minutes = calendar.component(.minute, from: date)
-        print("hour: ", hour)
-        print("minute: ", minutes)
+        determineAccess(day: day ?? 8, hour: hour, minute: minutes)
     }
     
     func determineAccess(day: Int, hour: Int, minute: Int){
@@ -398,6 +402,9 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
                 }
                 
             })
+        }
+        else if permit == "Available Now (Without Permit)"{
+            getAccessData()
         }
         else {
             ref.child("lots").observe(DataEventType.value, with: { snapshot in
