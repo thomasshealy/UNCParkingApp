@@ -120,13 +120,17 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         
         ref.child("users").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value, with: {(snapshot) in
             
-            let value = snapshot.value as! NSDictionary
+           if let value = snapshot.value as? NSDictionary{
             let permits = (value["permits"] as! NSArray)
             if permits[0] as! String == "Visitor/No Permit"{
                 self.getAccessData()
             }
             else{
             self.filterMap(permit: (permits[0] as! String))
+            }
+            }
+           else{
+            self.signOut()
             }
             
         }) { (error) in
@@ -432,8 +436,18 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         }
     }
     
-    
-
+    func signOut(){
+        if Auth.auth().currentUser != nil {
+            do {
+                try? Auth.auth().signOut()
+                
+                if Auth.auth().currentUser == nil {
+                    let loginVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Login") as! LoginController
+                    self.present(loginVC, animated: true, completion: nil)
+                }
+            }
+        }
+    }
 }
 
 extension FirstViewController{

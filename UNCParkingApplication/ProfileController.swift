@@ -131,9 +131,9 @@ class ProfileController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
                 }
                 self.permitPickerData = [String](Set(self.permitPickerData))
                 self.permitPickerData.sort()
-                self.permitPickerData.append("Visitor/No Permit")
+                self.permitPickerData.insert("Visitor/No Permit", at: 0)
             }
-            
+    
         })
     }
     

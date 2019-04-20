@@ -94,9 +94,10 @@ class LocationTableController: UITableViewController, CLLocationManagerDelegate,
                 }
                 tempData = [String](Set(tempData))
                 tempData.sort()
-                self.permitPickerData.append("Weeknight Parking")
-                self.permitPickerData.append("Weekday Parking")
+                self.permitPickerData.append("Weeknight")
                 self.permitPickerData.append("All")
+                self.permitPickerData.append("Available Now (Without Permit)")
+                self.permitPickerData.append("Weekday")
                 
                 for x in tempData {
                     self.permitPickerData.append(x)
@@ -122,8 +123,12 @@ class LocationTableController: UITableViewController, CLLocationManagerDelegate,
             
           let value = snapshot.value as! NSDictionary
           let permits = (value["permits"] as! NSArray)
+          if permits[0] as! String == "Visitor/No Permit"{
+            self.getAccessData()
+          }
+          else{
           self.filterList(permit: (permits[0] as! String))
-            
+          }
         }) { (error) in
             print(error.localizedDescription)
         }
@@ -278,6 +283,114 @@ class LocationTableController: UITableViewController, CLLocationManagerDelegate,
         }
     }
     
+    func getDayOfWeek() -> Int?{
+        let date = Date()
+        let format = DateFormatter()
+        format.dateFormat = "yyyy-MM-dd"
+        let calendar = Calendar.current
+        return calendar.component(.weekday, from: date)
+    }
+    
+    func getAccessData(){
+        let date = Date()
+        let calendar = Calendar.current
+        let day = getDayOfWeek()
+        let hour = calendar.component(.hour, from: date)
+        let minutes = calendar.component(.minute, from: date)
+        determineAccess(day: day ?? 8, hour: hour, minute: minutes)
+    }
+    
+    func determineAccess(day: Int, hour: Int, minute: Int){
+        //Tuesday-Thursday
+        if day >= 3 || day <= 5{
+            //5pm - 11pm
+            if hour >= 1700{
+                filterList(permit: "Weeknight")
+            }
+                //midnight - 6:59 am
+            else if hour < 700{
+               filterList(permit: "Weeknight")
+            }
+                //7am - 7:59 am
+            else if hour == 700{
+                //Weeknight still valid, but warn the user time is running out.
+                if minute <= 30{
+                    filterList(permit: "Weeknight")
+                    warnUser()
+                }
+                else{
+                    filterList(permit: "Weekday")
+                }
+            }
+            else{
+                filterList(permit: "Weekday")
+            }
+        }
+            //Sunday or Saturday
+        else if day == 1 || day == 7{
+            filterList(permit: "All")
+        }
+            //Monday
+        else if day == 2{
+            //5pm - 11pm
+            if hour >= 1700{
+                filterList(permit: "Weeknight")
+            }
+                //midnight - 6:59 am
+            else if hour < 700{
+                filterList(permit: "All")
+            }
+                //7am - 7:59 am
+            else if hour == 700{
+                //Weeknight still valid, but warn the user time is running out.
+                if minute <= 30{
+                    filterList(permit: "All")
+                    warnUser()
+                }
+                else{
+                    filterList(permit: "Weekday")
+                }
+            }
+            else{
+                filterList(permit: "Weekday")
+            }
+        }
+            //Friday
+        else{
+            //5pm - 11pm
+            if hour >= 1700{
+                filterList(permit: "All")
+            }
+                //midnight - 6:59 am
+            else if hour < 700{
+               filterList(permit: "Weeknight")
+            }
+                //7am - 7:59 am
+            else if hour == 700{
+                //Weeknight still valid, but warn the user time is running out.
+                if minute <= 30{
+                    filterList(permit: "Weeknight")
+                    warnUser()
+                }
+                else{
+                    filterList(permit: "Weekday")
+                }
+            }
+            else{
+                filterList(permit: "Weekday")
+            }
+        }
+    }
+    
+    func warnUser(){
+        let alertText = "Weeknight Parking Hours are Monday - Thursday, 5 p.m. - 7:30 a.m. for more information please see the More Info page of this app. "
+        let alertController = UIAlertController(title: "Warning", message: alertText, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+            alertController.dismiss(animated: true, completion: nil)
+        }))
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
     func initiateCalculations(){
         for lot in lotList{
             //let coord = CLLocationCoordinate2D(latitude: lot.latitude, longitude: lot.longitude)
@@ -344,7 +457,7 @@ extension LocationTableController{
             print("Done!")
             
         }
-        else if permit == "Weekday Parking"{
+        else if permit == "Weekday"{
             ref.child("weekday").observe(DataEventType.value, with: { snapshot in
                 self.lotList = []
                 if let snapshots = snapshot.children.allObjects as? [DataSnapshot] {
@@ -368,7 +481,7 @@ extension LocationTableController{
                 
             })
         }
-        else if permit == "Weeknight Parking"{
+        else if permit == "Weeknight"{
             print("Enters weeknight if")
             ref.child("weeknight").observe(DataEventType.value, with: { snapshot in
                 self.lotList = []
@@ -393,6 +506,9 @@ extension LocationTableController{
                 
             })
             
+        }
+        else if permit == "Available Now (Without Permit)"{
+            getAccessData()
         }
         else {
             ref.child("lots").observe(DataEventType.value, with: { snapshot in
